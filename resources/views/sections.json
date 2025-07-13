@@ -1,0 +1,500 @@
+{
+    "breadcrumb": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Breadcrumb Section",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "1350x360"
+                }
+            }
+        }
+    },
+
+    "app_download": {
+        "builder": true,
+        "no_selection": false,
+        "name": "App Download",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "640x465"
+                },
+                "app_store": {
+                    "size": "180x65"
+                },
+                "google_play": {
+                    "size": "180x65"
+                }
+            },
+            "heading": "text",
+            "heading_ar": "text",
+            "subheading": "text",
+            "subheading_ar": "text",
+            "description": "textarea-nic",
+            "description_ar": "textarea-nic",
+            "app_store_link": "text",
+            "google_store_link": "text"
+        }
+    },
+
+    "social_media": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Social Media Section",
+        "element": {
+            "name": "text",
+            "link": "text",
+            "icon": "icon",
+            "modal": true
+        }
+    },
+    "footer": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Footer Section",
+        "content": {
+            "address": "text",
+            "address_ar": "text",
+            "email": "text",
+            "mobile": "text"
+        }
+    },
+
+    "contact_us": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Contact Us Section",
+        "content": {
+            "address": "text",
+            "address_ar": "text",
+            "message": "text",
+            "message_ar": "text",
+            "message_2": "text",
+            "message_2_ar": "text",
+            "tel": "text",
+            "fax": "text",
+            "email": "text",
+            "mobile": "text",
+            "website": "text",
+            "map_url": "text"
+        }
+    },
+    "banner": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Banner Section",
+        "element": {
+            "images": {
+                "image": {
+                    "size": "1920x350"
+                },
+                "arabic_image": {
+                    "size": "1920x350"
+                }
+            },
+            "modal": true
+        }
+    },
+
+    "about_section": {
+        "builder": true,
+        "no_selection": false,
+        "name": "About Section",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "615x340"
+                }
+            },
+            "title": "text",
+            "title_ar": "text",
+            "description": "textarea-nic",
+            "description_ar": "textarea-nic"
+        }
+    },
+    "blog": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Blog Section",
+        "content": {
+            "title": "text",
+            "sub_title": "textarea-nic"
+        }
+    },
+
+    "policy_pages": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Policy Pages",
+        "element": {
+            "title": "text",
+            "details": "textarea-nic",
+            "details_ar": "textarea-nic",
+            "modal": false
+        }
+    },
+    "get_notification": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Get Notification",
+        "content": {
+            "title": "text",
+            "title_ar": "text",
+            "description": "text",
+            "description_ar": "text"
+        }
+    },
+    "header": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Header Section",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "584x551"
+                }
+            },
+            "job_search_url": "text",
+            "video_url": "text"
+        },
+        "element": {
+            "title": "text",
+            "title_ar": "text",
+            "modal": true
+        }
+    },
+
+    "feature": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Feature Section",
+        "element": {
+           "images": {
+                "image": {
+                    "size": "85x85"
+                }
+            },
+            "title": "text",
+            "title_ar": "text",
+            "color": "text",
+            "link": "text",
+            "modal": true
+        }
+    },
+
+    "our_service": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Our Service Section",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "538x473"
+                }
+            },
+            "title": "text",
+            "title_ar": "text",
+            "description": "textarea-nic",
+            "description_ar": "textarea-nic"
+        }
+    },
+
+    "productive": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Productive Section",
+        "content": {
+            "title": "text",
+            "title_ar": "text",
+            "description": "text",
+            "description_ar": "text",
+            "job_search_url": "text",
+            "job_apply_url": "text",
+            "images": {
+                "image": {
+                    "size": "1920x600"
+                }
+            }
+        }
+    },
+    "jobincu_service": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Jobincu Service Section",
+        "content": {
+            "title": "text",
+            "title_ar": "text",
+            "description": "text",
+            "description_ar": "text",
+            "images": {
+                "image": {
+                    "size": "463x200"
+                },
+                "image2": {
+                    "size": "600x300"
+                }
+            }
+        }
+    },
+    "qualification_for_empowerment": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Qualification for Empowerment",
+        "content": {
+            "description": "textarea-nic",
+            "description_ar":  "textarea-nic",
+            "images": {
+                "image": {
+                    "size": "533x313"
+                }
+            }
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "target_group": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Target groups",
+        "content": {
+            "title": "text",
+            "title_ar":  "text"
+        },
+        "element":{
+            "images": {
+                "image": {
+                    "size": "100x100"
+                }
+            },
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "acquired_skills": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Acquired skills",
+        "content": {
+            "title": "text",
+            "title_ar":  "text",
+            "description": "text",
+            "description_ar": "text"
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "cv_marketing": {
+        "builder": true,
+        "no_selection": false,
+        "name": "CV Marketing",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "584x551"
+                }
+            },
+            "title": "text",
+            "title_ar":  "text"
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "jobincu_rehabilitation_training": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Jobincu Rehabilitation & Training",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "584x551"
+                }
+            },
+            "title": "text",
+            "title_ar":  "text",
+            "description": "text",
+            "description_ar": "text"
+        }
+    },
+    "pre_contract_qualification": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Pre-contract Qualification",
+        "content": {
+            "title": "text",
+            "title_ar":  "text"
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "training_after_recruitment": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Training after Recruitment",
+        "content": {
+            "title": "text",
+            "title_ar":  "text"
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "awareness": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Awareness",
+        "content": {
+            "title": "text",
+            "title_ar":  "text"
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "events": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Events",
+        "content": {
+            "title": "text",
+            "title_ar":  "text"
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "labsincu": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Labsincu",
+        "content": {
+            "title": "text",
+            "title_ar":  "text"
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "authentication_of_documents": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Authentication of Documents",
+        "content": {
+            "title": "text",
+            "title_ar":  "text"
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "writing_cvs": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Writing CVs",
+        "content": {
+            "title": "text",
+            "title_ar":  "text",
+            "description": "text",
+            "description_ar": "text"
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "writing_cvs_documents": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Writing CVs Documents",
+        "content": {
+            "description": "text",
+            "description_ar": "text"
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "privacy_policy": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Privacy Policy",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "584x551"
+                }
+            },
+            "title": "text",
+            "title_ar":  "text",
+            "description": "textarea-nic",
+            "description_ar": "textarea-nic"
+        }
+    },
+    "interpretation_and_definition": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Interpretation and definition",
+        "content": {
+            "name": "text",
+            "name_ar":  "text",
+            "description": "text",
+            "description_ar": "text",
+            "title": "text",
+            "title_ar":  "text",
+            "short_description": "text",
+            "short_description_ar": "text"
+        },
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "context_of_personal_data": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Context of Personal Data",
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    },
+    "context": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Context",
+        "element":{
+            "title":"text",
+            "title_ar": "text",
+            "modal":true
+        }
+    }
+}

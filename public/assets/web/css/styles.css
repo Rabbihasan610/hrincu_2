@@ -1,0 +1,34 @@
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.icon-box {
+    background-color: #f8f5ff;
+    border-radius: 12px;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.group:hover .icon-box {
+    background-color: #ece5ff;
+}
+
+.btn-dark-custom {
+    background-color: #2b0a53;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.btn-dark-custom:hover {
+    background-color: #1a0535;
+    transform: translateY(-2px);
+}
+
