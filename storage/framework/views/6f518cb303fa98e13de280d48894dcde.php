@@ -1,8 +1,25 @@
-@extends('web.layouts.frontend', ['title' => 'About Us'])
+<?php $__env->startSection('content'); ?>
 
-@section('content')
-
-<x-breadcrumb title="About Us" />
+<?php if (isset($component)) { $__componentOriginale19f62b34dfe0bfdf95075badcb45bc2 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.breadcrumb','data' => ['title' => 'About Us']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('breadcrumb'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['title' => 'About Us']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2)): ?>
+<?php $attributes = $__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2; ?>
+<?php unset($__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginale19f62b34dfe0bfdf95075badcb45bc2)): ?>
+<?php $component = $__componentOriginale19f62b34dfe0bfdf95075badcb45bc2; ?>
+<?php unset($__componentOriginale19f62b34dfe0bfdf95075badcb45bc2); ?>
+<?php endif; ?>
 
 <section class="py-12 bg-gray-50">
     <div class="max-w-7xl mx-auto">
@@ -15,7 +32,7 @@
             </div>
 
             <div class="md:w-1/2 flex items-center justify-center p-6">
-                <img src="{{ asset('img/about_img.png') }}" alt="" class="max-w-full h-auto">
+                <img src="<?php echo e(asset('img/about_img.png')); ?>" alt="" class="max-w-full h-auto">
             </div>
         </div>
     </div>
@@ -280,9 +297,9 @@
     </div>
 </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('style')
+<?php $__env->startPush('style'); ?>
 <style>
     .line-before::before{
         content: '';
@@ -351,4 +368,6 @@
         vertical-align: middle;
     }
 </style>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('web.layouts.frontend', ['title' => 'About Us'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\hrincu_v2\resources\views/web/about.blade.php ENDPATH**/ ?>

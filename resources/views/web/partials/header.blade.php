@@ -14,9 +14,9 @@
             <path d="M5.25 7.75L10 12.5l4.75-4.75" />
           </svg>
         </button>
-        <ul class="absolute right-0 mt-2 w-40 bg-white text-black rounded shadow-md hidden group-hover:block z-50">
-          <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Profile</a></li>
-          <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a></li>
+        <ul class="absolute right-0 w-40 mt-1 bg-white text-black rounded shadow-md hidden group-hover:block z-50">
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">@lang('Sign In')</a></li>
+          <li><a href="{{ route('user.register') }}" class="block px-4 py-2 hover:bg-gray-100">@lang('Sing Up')</a></li>
           <li><hr class="my-1 border-gray-200" /></li>
           <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Logout</a></li>
         </ul>
@@ -33,7 +33,7 @@
       </a>
 
       <div class="md:hidden">
-        <button type="button" class="text-gray-500 hover:text-black focus:outline-none" @click="open = !open">
+        <button type="button" class="text-gray-500 hover:text-black focus:outline-none" onclick="showMobileMenu()">
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M4 6h16M4 12h16M4 18h16" />
@@ -42,28 +42,28 @@
       </div>
 
       <div class="hidden md:flex space-x-6 items-center">
-        <a href="{{ url('/') }}" class="text-gray-700 hover:text-purple-700 text-sm">Home</a>
-        <a href="#" class="text-gray-700 hover:text-purple-700 text-sm">About Us</a>
-        <a href="#" class="text-gray-700 hover:text-purple-700 text-sm">Our Services</a>
-        <a href="#" class="text-gray-700 hover:text-purple-700 text-sm">Targeted Sectors</a>
-        <a href="#" class="text-gray-700 hover:text-purple-700 text-sm">Training Programs</a>
-        <a href="#" class="text-gray-700 hover:text-purple-700 text-sm">Community Engagement</a>
-        <a href="#" class="text-gray-700 hover:text-purple-700 text-sm">Documents & Certificate</a>
-        <a href="#" class="text-gray-700 hover:text-purple-700 text-sm">Contact Us</a>
-        <a href="#" class="ml-2 px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800 transition">Submit</a>
+        <a href="{{ url('/') }}" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Home')</a>
+        <a href="{{ route('about') }}" class="text-gray-700 hover:text-purple-700 text-sm">@lang('About Us')</a>
+        <a href="{{ route('service') }}" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Our Services')</a>
+        <a href="{{ route('targeted.sector') }}" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Targeted Sectors')</a>
+        <a href="{{ route('training.program') }}" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Training Programs')</a>
+        <a href="{{ route('community.engagement') }}" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Community Engagement')</a>
+        <a href="{{ route('licenses.document') }}" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Documents & Certificate')</a>
+        <a href="#" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Contact Us')</a>
+        <a href="#" class="ml-2 px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800 transition">@lang('Submit')</a>
       </div>
     </div>
   </div>
 
-  <div class="md:hidden" x-show="open">
+  <div class="md:hidden hidden" id="showMenu">
     <div class="px-4 pt-2 pb-4 space-y-2">
       <a href="{{ url('/') }}" class="block text-gray-700 hover:text-purple-700 text-sm">Home</a>
-      <a href="#" class="block text-gray-700 hover:text-purple-700 text-sm">About Us</a>
-      <a href="#" class="block text-gray-700 hover:text-purple-700 text-sm">Our Services</a>
-      <a href="#" class="block text-gray-700 hover:text-purple-700 text-sm">Targeted Sectors</a>
-      <a href="#" class="block text-gray-700 hover:text-purple-700 text-sm">Training Programs</a>
-      <a href="#" class="block text-gray-700 hover:text-purple-700 text-sm">Community Engagement</a>
-      <a href="#" class="block text-gray-700 hover:text-purple-700 text-sm">Documents & Certificate</a>
+      <a href="{{ route('about') }}" class="block text-gray-700 hover:text-purple-700 text-sm">About Us</a>
+      <a href="{{ route('service') }}" class="block text-gray-700 hover:text-purple-700 text-sm">Our Services</a>
+      <a href="{{ route('targeted.sector') }}" class="block text-gray-700 hover:text-purple-700 text-sm">Targeted Sectors</a>
+      <a href="{{ route('training.program') }}" class="block text-gray-700 hover:text-purple-700 text-sm">Training Programs</a>
+      <a href="{{ route('community.engagement') }}" class="block text-gray-700 hover:text-purple-700 text-sm">Community Engagement</a>
+      <a href="{{ route('licenses.document') }}" class="block text-gray-700 hover:text-purple-700 text-sm">Documents & Certificate</a>
       <a href="#" class="block text-gray-700 hover:text-purple-700 text-sm">Contact Us</a>
       <a href="#" class="block mt-2 px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800">Submit</a>
     </div>

@@ -1,13 +1,30 @@
-@extends('web.layouts.frontend', ['title' => 'Sign In'])
-
-@section('content')
-@php
+<?php $__env->startSection('content'); ?>
+<?php
     $policyPages = getContent('policy_pages.element', false, null, true);
 
     $type = request()->type ?? 'service-supplier';
-@endphp
+?>
 
-<x-breadcrumb title="Registration as Job Seeker" />
+<?php if (isset($component)) { $__componentOriginale19f62b34dfe0bfdf95075badcb45bc2 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.breadcrumb','data' => ['title' => 'Registration as Job Seeker']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('breadcrumb'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['title' => 'Registration as Job Seeker']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2)): ?>
+<?php $attributes = $__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2; ?>
+<?php unset($__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginale19f62b34dfe0bfdf95075badcb45bc2)): ?>
+<?php $component = $__componentOriginale19f62b34dfe0bfdf95075badcb45bc2; ?>
+<?php unset($__componentOriginale19f62b34dfe0bfdf95075badcb45bc2); ?>
+<?php endif; ?>
 
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
     <div class="max-w-4xl mx-auto overflow-hidden">
@@ -151,26 +168,22 @@
         </form>
     </div>
 </section>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('style')
+<?php $__env->startPush('style'); ?>
 
-@endpush
+<?php $__env->stopPush(); ?>
 
-{{-- @if (gs('secure_password'))
-    @push('script-lib')
-        <script src="{{ asset('assets/global/js/secure_password.js') }}"></script>
-    @endpush
-@endif --}}
 
-@push('script')
+
+<?php $__env->startPush('script'); ?>
     <script>
         "use strict";
         (function($) {
             $('.checkUser').on('focusout', function(e) {
-                var url = "{{ route('user.checkUser') }}";
+                var url = "<?php echo e(route('user.checkUser')); ?>";
                 var value = $(this).val();
-                var token = '{{ csrf_token() }}';
+                var token = '<?php echo e(csrf_token()); ?>';
                 var fieldType = $(this).attr('name');
                 var data = {
                     _token: token
@@ -187,4 +200,6 @@
             });
         })(jQuery);
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('web.layouts.frontend', ['title' => 'Sign In'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\hrincu_v2\resources\views/user/auth/register.blade.php ENDPATH**/ ?>

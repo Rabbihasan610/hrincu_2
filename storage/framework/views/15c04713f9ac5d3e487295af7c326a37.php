@@ -124,7 +124,6 @@
     </div>
 
 
-
     <?php if(@$sections->secs != null): ?>
         <?php $__currentLoopData = json_decode($sections->secs); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php echo $__env->make('sections.' . $sec, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -132,43 +131,5 @@
     <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
-
-<?php $__env->startPush('script'); ?>
-    <script>
-        $(window).on('resize', function(event) {
-            let width = $(document).width()
-
-            if (width < 576) {
-                $(".property-type-area-slider").slick({
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    autoplay: true,
-                    autoplaySpeed: 3000,
-                    speed: 1800,
-                    dots: false,
-                    arrows: false,
-                    <?php if(session()->get('lang') == 'ar'): ?>
-                        rtl: true,
-                    <?php endif; ?>
-                });
-            }
-        });
-
-        if ($(window).width() < 576) {
-            $(".property-type-area-slider").slick({
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                speed: 1800,
-                dots: true,
-                arrows: false,
-                <?php if(session()->get('lang') == 'ar'): ?>
-                    rtl: true,
-                <?php endif; ?>
-            });
-        }
-    </script>
-<?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('web.layouts.frontend', ['title' => gs('site_name')], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\hrincu_v2\resources\views/web/home.blade.php ENDPATH**/ ?>

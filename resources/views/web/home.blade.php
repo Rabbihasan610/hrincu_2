@@ -126,7 +126,6 @@
     </div>
 
 
-
     @if (@$sections->secs != null)
         @foreach (json_decode($sections->secs) as $sec)
             @include('sections.' . $sec)
@@ -134,41 +133,3 @@
     @endif
 @endsection
 
-
-@push('script')
-    <script>
-        $(window).on('resize', function(event) {
-            let width = $(document).width()
-
-            if (width < 576) {
-                $(".property-type-area-slider").slick({
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    autoplay: true,
-                    autoplaySpeed: 3000,
-                    speed: 1800,
-                    dots: false,
-                    arrows: false,
-                    @if (session()->get('lang') == 'ar')
-                        rtl: true,
-                    @endif
-                });
-            }
-        });
-
-        if ($(window).width() < 576) {
-            $(".property-type-area-slider").slick({
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                speed: 1800,
-                dots: true,
-                arrows: false,
-                @if (session()->get('lang') == 'ar')
-                    rtl: true,
-                @endif
-            });
-        }
-    </script>
-@endpush

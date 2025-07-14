@@ -54,7 +54,7 @@ class WebController extends Controller
 
     public function about()
     {
-        return view('web.cons');
+        return view('web.about');
     }
 
 
@@ -660,6 +660,36 @@ class WebController extends Controller
         $notify[] = ['success', __('Your request has been submitted successfully!')];
 
         return redirect()->back()->withNotify($notify);
+    }
+
+    public function targetedSector()
+    {
+        return view('web.targeted_sector');
+    }
+
+    public function trainingProgram()
+    {
+        return view('web.training_program');
+    }
+
+    public function specialTraining()
+    {
+        return view('web.special_training');
+    }
+
+    public function communityEngagement()
+    {
+        return view('web.community_engagement');
+    }
+
+    public function communityPartnershipRequest()
+    {
+        return view('web.community_partnership_request');
+    }
+
+    public function licensesDocument()
+    {
+        return view('web.licenses_and_document');
     }
 }
 

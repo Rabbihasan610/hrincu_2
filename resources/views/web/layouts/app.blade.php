@@ -93,6 +93,14 @@
 
 
     <script>
+        function showMobileMenu() {
+            const menu = document.getElementById('showMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+
+
+    <script>
         (function($) {
             "use strict";
 

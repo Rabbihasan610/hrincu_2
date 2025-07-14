@@ -39,7 +39,7 @@ class RegisterController extends Controller
        if(request()->type == 'service-supplier'){
             $view = 'register';
        }else{
-            $view = 'service-seeker';
+            $view = 'register';
        }
 
        $type = $request->type ?? 'service-supplier';

@@ -1,12 +1,10 @@
-@extends('web.layouts.frontend', ['title' => 'Sign In'])
-
-@section('content')
-    @php
+<?php $__env->startSection('content'); ?>
+    <?php
         $policyPages = getContent('policy_pages.element', false, null, true);
 
         $type = request()->type ?? 'service-seeker';
 
-    @endphp
+    ?>
 
     <div class="container py-5">
         <div class="row justify-content-center">
@@ -14,89 +12,108 @@
                 <div class="custom-card">
                     <ul class="nav nav-pills justify-content-center mb-3" id="pills-tab" role="tablist">
                          <li class="nav-item mt-2">
-                            <a class="nav-link {{ $type == 'service-seeker' ? 'active' : '' }} custom-nav-link "
-                                href="{{ route('user.register', ['type'=> 'service-seeker']) }}"
-                                aria-selected="false">{{ __('Register as service seeker “Supplying CVs”') }}</a>
+                            <a class="nav-link <?php echo e($type == 'service-seeker' ? 'active' : ''); ?> custom-nav-link "
+                                href="<?php echo e(route('user.register', ['type'=> 'service-seeker'])); ?>"
+                                aria-selected="false"><?php echo e(__('Register as service seeker “Supplying CVs”')); ?></a>
                         </li>
                         <li class="nav-item mt-2">
-                            <a class="nav-link {{ $type == 'service-supplier' ? 'active' : '' }} custom-nav-link"
-                                href="{{ route('user.register', ['type'=> 'service-supplier']) }}"
-                               >{{ __('Register as service supplier “Marketing CVs”') }}</a>
+                            <a class="nav-link <?php echo e($type == 'service-supplier' ? 'active' : ''); ?> custom-nav-link"
+                                href="<?php echo e(route('user.register', ['type'=> 'service-supplier'])); ?>"
+                               ><?php echo e(__('Register as service supplier “Marketing CVs”')); ?></a>
                         </li>
 
                     </ul>
 
                     <div>
                         <div>
-                            <form action="{{ route('user.register') }}" method="post">
-                                @csrf
+                            <form action="<?php echo e(route('user.register')); ?>" method="post">
+                                <?php echo csrf_field(); ?>
                                 <input type="hidden" name="user_type" value="job_provider">
                                 <div class="mb-3 ">
-                                    <label class="form-label">@lang('Username')</label>
+                                    <label class="form-label"><?php echo app('translator')->get('Username'); ?></label>
                                     <input type="text" class="form-control checkUser" name="username"
-                                        value="{{ old('username') }}">
+                                        value="<?php echo e(old('username')); ?>">
                                     <small class="text-danger usernameExist"></small>
                                 </div>
 
                                 <div class="mb-3 ">
-                                    <label class="form-label">@lang('Email Address')</label>
+                                    <label class="form-label"><?php echo app('translator')->get('Email Address'); ?></label>
                                     <input type="email" class="form-control checkUser" name="email"
-                                        value="{{ old('email') }}">
+                                        value="<?php echo e(old('email')); ?>">
                                     <small class="text-danger emailExist"></small>
                                 </div>
 
                                 <div class="mb-3 ">
-                                    <label class="form-label">@lang('Phone Number')</label>
+                                    <label class="form-label"><?php echo app('translator')->get('Phone Number'); ?></label>
                                     <input type="text" class="form-control checkUser" name="mobile"
-                                        value="{{ old('mobile') }}" required>
+                                        value="<?php echo e(old('mobile')); ?>" required>
                                     <small class="text-danger mobileExist"></small>
                                 </div>
 
 
                                 <div class="mb-3 ">
-                                    <label class="form-label">@lang('Password')</label>
+                                    <label class="form-label"><?php echo app('translator')->get('Password'); ?></label>
                                     <input type="password" class="form-control" name="password" required>
                                 </div>
 
                                 <div class="mb-3 ">
-                                    <label class="form-label">@lang('Confirm Password')</label>
+                                    <label class="form-label"><?php echo app('translator')->get('Confirm Password'); ?></label>
                                     <input type="password" class="form-control" name="password_confirmation" required>
                                 </div>
 
-                                <x-captcha />
+                                <?php if (isset($component)) { $__componentOriginalff0a9fdc5428085522b49c68070c11d6 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalff0a9fdc5428085522b49c68070c11d6 = $attributes; } ?>
+<?php $component = App\View\Components\Captcha::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('captcha'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(App\View\Components\Captcha::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalff0a9fdc5428085522b49c68070c11d6)): ?>
+<?php $attributes = $__attributesOriginalff0a9fdc5428085522b49c68070c11d6; ?>
+<?php unset($__attributesOriginalff0a9fdc5428085522b49c68070c11d6); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalff0a9fdc5428085522b49c68070c11d6)): ?>
+<?php $component = $__componentOriginalff0a9fdc5428085522b49c68070c11d6; ?>
+<?php unset($__componentOriginalff0a9fdc5428085522b49c68070c11d6); ?>
+<?php endif; ?>
 
-                                @if (gs()->agree)
+                                <?php if(gs()->agree): ?>
                                     <div class="pb-3 col-12">
                                         <div class="">
-                                            <input type="checkbox" id="agree_employer" @checked(old('agree'))
+                                            <input type="checkbox" id="agree_employer" <?php if(old('agree')): echo 'checked'; endif; ?>
                                                 name="agree" required>
-                                            <label for="agree">@lang('I agree with')</label> <span>
-                                                @foreach ($policyPages as $policy)
-                                                    <a href="{{ route('policy.pages', [slug($policy->data_values->title), $policy->id]) }}"
-                                                        target="_blank">{{ __($policy->data_values->title) }}</a>
-                                                    @if (!$loop->last)
+                                            <label for="agree"><?php echo app('translator')->get('I agree with'); ?></label> <span>
+                                                <?php $__currentLoopData = $policyPages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $policy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <a href="<?php echo e(route('policy.pages', [slug($policy->data_values->title), $policy->id])); ?>"
+                                                        target="_blank"><?php echo e(__($policy->data_values->title)); ?></a>
+                                                    <?php if(!$loop->last): ?>
                                                         ,
-                                                    @endif
-                                                @endforeach
+                                                    <?php endif; ?>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </span>
                                         </div>
                                     </div>
-                                @endif
-                                <button type="submit" class="btn btn-base w-100">@lang('Sign Up')</button>
+                                <?php endif; ?>
+                                <button type="submit" class="btn btn-base w-100"><?php echo app('translator')->get('Sign Up'); ?></button>
                             </form>
                         </div>
                     </div>
 
-                    <p class="text-center mt-3">@lang('Already have an account?') <a
-                            href="{{ route('user.login') }}">@lang('Sign In')</a></p>
+                    <p class="text-center mt-3"><?php echo app('translator')->get('Already have an account?'); ?> <a
+                            href="<?php echo e(route('user.login')); ?>"><?php echo app('translator')->get('Sign In'); ?></a></p>
 
                 </div>
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('style')
+<?php $__env->startPush('style'); ?>
     <style>
         .custom-card {
             background: #fff;
@@ -196,22 +213,18 @@
             background: linear-gradient(to right, #2575fc, #6a11cb);
         }
     </style>
-@endpush
+<?php $__env->stopPush(); ?>
 
-{{-- @if (gs('secure_password'))
-    @push('script-lib')
-        <script src="{{ asset('assets/global/js/secure_password.js') }}"></script>
-    @endpush
-@endif --}}
 
-@push('script')
+
+<?php $__env->startPush('script'); ?>
     <script>
         "use strict";
         (function($) {
             $('.checkUser').on('focusout', function(e) {
-                var url = "{{ route('user.checkUser') }}";
+                var url = "<?php echo e(route('user.checkUser')); ?>";
                 var value = $(this).val();
-                var token = '{{ csrf_token() }}';
+                var token = '<?php echo e(csrf_token()); ?>';
                 var fieldType = $(this).attr('name');
                 var data = {
                     _token: token
@@ -228,4 +241,6 @@
             });
         })(jQuery);
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('web.layouts.frontend', ['title' => 'Sign In'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\hrincu_v2\resources\views/user/auth/service-seeker.blade.php ENDPATH**/ ?>
