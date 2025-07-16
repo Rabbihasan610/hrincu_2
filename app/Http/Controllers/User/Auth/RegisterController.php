@@ -2,225 +2,164 @@
 
 namespace App\Http\Controllers\User\Auth;
 
+use App\Models\City;
 use App\Models\User;
-use App\Models\Company;
 use App\Models\Country;
-use App\Constants\Status;
-use App\Models\UserLogin;
 use Illuminate\View\View;
-use App\Models\UserDetail;
+use App\Rules\ValidUsername;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules;
-use App\Models\AdminNotification;
-use App\Models\PersonalInformation;
+use App\Traits\ApiResponseTrait;
+use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
-use App\Models\ApplicationInformation;
 use Illuminate\Auth\Events\Registered;
-use App\Models\PreferredJobInformation;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
 {
+    use ApiResponseTrait;
+
     public function __construct()
     {
         $this->middleware('guest');
         $this->middleware('registration.status');
     }
 
-    public function showRegistrationForm(Request $request): View
+    public function showRegistrationForm(Request $request): View|JsonResponse
     {
-       $countries = Country::orderByRaw('ISNULL(sort_order), sort_order')->get();
+        $countries = Country::orderByRaw('ISNULL(sort_order), sort_order ASC')->get();
+        $cities = City::orderBy('name')->get();
 
-       if(request()->type == 'service-supplier'){
-            $view = 'register';
-       }else{
-            $view = 'register';
-       }
+        $type = $request->type ?? 'job-seeker';
+        $view = match($type) {
+            'employer' => 'employer',
+            'service-provider' => 'provider',
+            default => 'job-seeker'
+        };
 
-       $type = $request->type ?? 'service-supplier';
+        if ($request->wantsJson()) {
+            return $this->successResponse([
+                'countries' => $countries,
+                'cities' => $cities,
+                'type' => $type
+            ]);
+        }
 
-        return view('user.auth.' .$view, compact('countries', 'type'));
+        return view('user.auth.' . $view, compact('countries', 'type', 'cities'));
     }
 
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse|RedirectResponse
     {
+        $validator = $this->validator($request->all());
 
-
-        $this->validator($request->all())->validate();
-
-        if(preg_match("/[^a-z0-9_]/", trim($request->username))){
-            $notify[] = ['info', 'Username can contain only small letters, numbers and underscore.'];
-            $notify[] = ['error', 'No special character, space or capital letters in username.'];
-            return back()->withNotify($notify)->withInput($request->all());
+        if ($validator->fails()) {
+            return $request->wantsJson()
+                ? $this->errorResponse($validator->errors()->first(), 422, $validator->errors())
+                : back()->withErrors($validator)->withInput();
         }
 
-        if(!verifyCaptcha()){
-            $notify[] = ['error','Invalid captcha provided'];
-            return back()->withNotify($notify);
-        }
-
-
-        $exist = User::where('mobile',$request->mobile)->first();
-
-
-        if ($exist) {
-            $notify[] = ['error', 'The mobile number already exists'];
-            return back()->withNotify($notify)->withInput();
+        if (!verifyCaptcha()) {
+            $message = 'Invalid captcha provided';
+            return $request->wantsJson()
+                ? $this->errorResponse($message, 422)
+                : back()->with('error', $message)->withInput();
         }
 
         $user = $this->create($request->all());
 
-        //return $user;
-
         event(new Registered($user));
 
-        if($user){
-            if($user->user_type == 'job_provider'){
-                $company = new Company();
-                $company->user_id = $user->id;
-                $company->save();
-            }
-
-            if($user->user_type == 'job_seeker'){
-                PersonalInformation::create(['user_id'=>$user->id]);
-                ApplicationInformation::create(['user_id'=>$user->id]);
-                PreferredJobInformation::create(['user_id'=>$user->id]);
-            }
-
-            $userdetail = new UserDetail();
-            $userdetail->user_id = $user->id;
-            $userdetail->marital_status = $request->marital_status ?? null;
-            $userdetail->save();
-        }
+        $this->createUserRelationships($user, $request);
 
         Auth::login($user);
 
-        $notify[] = ['success','Registration completed successfully'];
-        return redirect(RouteServiceProvider::HOME)->withNotify($notify);
+        if ($request->wantsJson()) {
+            return $this->successResponse([
+                'user' => $user,
+                'redirect' => RouteServiceProvider::HOME
+            ], 'Registration completed successfully');
+        }
+
+        return redirect(RouteServiceProvider::HOME)
+            ->with('success', 'Registration completed successfully');
     }
 
     protected function validator(array $data)
     {
         $general = gs();
+        $userType = $data['user_type'] ?? 'job_seeker';
 
-        $passwordValidation = Password::min(6);
-
-        if ($general->secure_password) {
-            $passwordValidation = $passwordValidation->mixedCase()->numbers()->symbols()->uncompromised();
-        }
-
-        $agree = 'nullable';
-
-        if ($general->agree) {
-            $agree = 'required';
-        }
-
-        $is_name = 'nullable';
-
-        if ($data['user_type'] == 'job_seeker') {
-            $is_name = 'required';
-        }
-
-
-        $validate = Validator::make($data, [
+        $rules = [
             'user_type' => 'required|in:job_seeker,job_provider',
             'email' => 'required|string|email|unique:users',
             'mobile' => 'required|unique:users|regex:/^([0-9]*)$/',
-            'password' => ['required','confirmed'],
-            'username' => 'required|unique:users|min:6',
+            'password' => ['required', 'confirmed', $this->getPasswordValidationRules()],
+            'username' => ['required', 'unique:users', 'min:6'],
             'captcha' => 'sometimes|required',
-            'agree' => $agree,
-            'name' => [$is_name, 'string', 'max:255'],
-        ]);
+            'agree' => $general->agree ? 'required' : 'nullable',
+        ];
 
-        return $validate;
+        if ($userType === 'job_seeker') {
+            $rules = array_merge($rules, [
+                'name' => 'required|string|max:255',
+                'date_of_birth' => 'required|date|before:-18 years',
+                'gender' => 'required|in:male,female,other',
+                'id_number' => 'required|string|max:50',
+                'city_region' => 'required|exists:cities,id',
+                'marital_status' => 'required|in:single,married,divorced,widowed',
+                'academic_qualification' => 'required|string|max:255',
+                'field_of_study' => 'required|string|max:255',
+                'english_proficiency' => 'required|in:native,fluent,intermediate,basic',
+                'key_skills' => 'required|string|max:500',
+                'years_of_experience' => 'required|integer|min:0',
+                'preferred_sectors' => 'required|array',
+                'preferred_job_type' => 'required|in:full-time,part-time,contract,freelance',
+                'resume' => 'nullable|file|mimes:pdf,jpg,png|max:2048',
+            ]);
+        }
 
+        return Validator::make($data, $rules, $this->validationMessages());
     }
 
-    protected function create(array $data)
+
+    public function checkUser(Request $request): JsonResponse
     {
-        //User Create
+        $field = match(true) {
+            $request->has('email') => 'email',
+            $request->has('mobile') => 'mobile',
+            $request->has('username') => 'username',
+            default => null
+        };
 
-       // return $data;
-        $user = new User();
-        $user->name = isset($data['name']) ? $data['name'] : null;
-        $user->user_type = $data['user_type'];
-        $user->email = strtolower($data['email']);
-        $user->password = Hash::make($data['password']);
-        $user->username = $data['username'];
-        $user->mobile = $data['mobile'];
-        $user->ev = gs()->ev ? Status::NO : Status::YES;
-        $user->sv = gs()->sv ? Status::NO : Status::YES;
-        $user->profile_complete = Status::YES;
-        $user->save();
-
-
-        $adminNotification = new AdminNotification();
-        $adminNotification->user_id = $user->id;
-        $adminNotification->title = 'New member registered';
-        $adminNotification->click_url =  urlPath('admin.users.detail',$user->id);
-        $adminNotification->save();
-
-
-        //Login Log Create
-        $ip = getRealIP();
-        $exist = UserLogin::where('user_ip',$ip)->first();
-        $userLogin = new UserLogin();
-
-        //Check exist or not
-        if ($exist) {
-            $userLogin->longitude =  $exist->longitude;
-            $userLogin->latitude =  $exist->latitude;
-            $userLogin->city =  $exist->city;
-            $userLogin->country_code = $exist->country_code;
-            $userLogin->country =  $exist->country;
-        }else{
-            $info = json_decode(json_encode(getIpInfo()), true);
-            $userLogin->longitude =  @implode(',',$info['long']);
-            $userLogin->latitude =  @implode(',',$info['lat']);
-            $userLogin->city =  @implode(',',$info['city']);
-            $userLogin->country_code = @implode(',',$info['code']);
-            $userLogin->country =  @implode(',', $info['country']);
+        if (!$field) {
+            return $this->errorResponse('No valid field provided', 400);
         }
 
-        $userAgent = osBrowser();
-        $userLogin->user_id = $user->id;
-        $userLogin->user_ip =  $ip;
+        $exists = User::where($field, $request->$field)->exists();
 
-        $userLogin->browser = @$userAgent['browser'];
-        $userLogin->os = @$userAgent['os_platform'];
-        $userLogin->save();
-
-
-        return $user;
+        return $this->successResponse([
+            'exists' => $exists,
+            'type' => $field,
+            'message' => $exists ? "This $field is already taken" : "This $field is available"
+        ]);
     }
 
+    protected function getPasswordValidationRules()
+    {
 
-    public function checkUser(Request $request){
-        $exist['data'] = false;
-        $exist['type'] = null;
-        if ($request->email) {
-            $exist['data'] = User::where('email',$request->email)->exists();
-            $exist['type'] = 'email';
+        $rules = Password::min(8);
+
+        if (gs()->secure_password) {
+            $rules = $rules
+                ->mixedCase()
+                ->numbers()
+                ->symbols()
+                ->uncompromised();
         }
-        if ($request->mobile) {
-            $exist['data'] = User::where('mobile',$request->mobile)->exists();
-            $exist['type'] = 'mobile';
-        }
-        if ($request->username) {
-            $exist['data'] = User::where('username',$request->username)->exists();
-            $exist['type'] = 'username';
-        }
-        return response($exist);
+
+        return $rules;
     }
 }
