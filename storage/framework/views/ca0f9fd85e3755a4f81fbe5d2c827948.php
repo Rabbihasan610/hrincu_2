@@ -31,8 +31,8 @@
 
                         <?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <li class="mb-2 flex items-start text-gray-700">
-                                <span class="text-purple-700 mr-2 mt-0.5">✔</span>
-                                <span class="leading-normal"><?php echo e($item['title']); ?></span>
+                                <span class="text-purple-700 me-2 mt-0.5"> ✔ </span>
+                                <span class="leading-normal"><?php echo e(app()->getLocale() == 'ar' ? $item['title_ar'] : $item['title']); ?></span>
                             </li>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>

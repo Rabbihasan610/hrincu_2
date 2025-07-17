@@ -39,6 +39,24 @@
         }
     },
 
+
+    "hero_section" : {
+        "builder": true,
+        "no_selection": false,
+        "name": "Hero Section",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "1920x350"
+                }
+            },
+            "title": "text",
+            "title_ar": "text",
+            "description": "text",
+            "description_ar": "text"
+        }
+    },
+
     "social_media": {
         "builder": true,
         "no_selection": true,

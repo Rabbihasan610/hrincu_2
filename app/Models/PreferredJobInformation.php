@@ -24,8 +24,6 @@ class PreferredJobInformation extends Model
         'status',
     ];
 
-
-
     public function functionl_info()
     {
         return $this->belongsTo(PreferredJobFunctional::class,'preferred_job_functional');

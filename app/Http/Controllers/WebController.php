@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Job;
 use App\Models\Blog;
 use App\Models\Page;
+use App\Models\Resume;
 use App\Models\Country;
 use App\Models\Sectors;
 use App\Models\District;
@@ -37,7 +38,11 @@ class WebController extends Controller
     public function index()
     {
         $sections = Page::where('slug', '/')->first();
-        return view('web.home', compact('sections'));
+
+
+        $community_partnerships = CommunityPartnership::active()->take(2)->get();
+
+        return view('web.home', compact('sections', 'community_partnerships'));
     }
 
     public function contact()
@@ -690,6 +695,81 @@ class WebController extends Controller
     public function licensesDocument()
     {
         return view('web.licenses_and_document');
+    }
+
+    public function submitResume()
+    {
+        return view('web.submit');
+    }
+
+    public function submitResumeStore(Request $request)
+    {
+        $rules = [
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'mobile_number' => 'required|string|max:20',
+            'city_country' => 'required|string|max:255',
+            'nationality' => 'required|string|max:255',
+            'years_experience' => 'required|string|max:100',
+            'academic_qualification' => 'required|string|max:255',
+            'major' => 'required|string|max:255',
+            'preferred_job_fields' => 'required|string|max:255',
+            'job_type' => 'required|array',
+            'job_type.*' => 'in:fullTime,partTime,remote,flexible',
+            'resume' => 'required|file|mimes:pdf,doc,docx|max:2048',
+        ];
+
+        $customMessages = [
+            'full_name.required' => __('The full name field is required.'),
+            'email.required' => __('The email field is required.'),
+            'email.email' => __('Please enter a valid email address.'),
+            'mobile_number.required' => __('The mobile number field is required.'),
+            'city_country.required' => __('The city/country field is required.'),
+            'nationality.required' => __('The nationality field is required.'),
+            'years_experience.required' => __('The years of experience field is required.'),
+            'academic_qualification.required' => __('The academic qualification field is required.'),
+            'major.required' => __('The major field is required.'),
+            'preferred_job_fields.required' => __('The preferred job fields field is required.'),
+            'job_type.required' => __('Please select at least one job type.'),
+            'job_type.*.in' => __('Invalid job type selected.'),
+            'resume.required' => __('Please upload your resume.'),
+            'resume.file' => __('The resume must be a file.'),
+            'resume.mimes' => __('The resume must be a file of type: pdf, doc, docx.'),
+            'resume.max' => __('The resume may not be greater than 2MB.'),
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $customMessages);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $resumePath = null;
+
+        if ($request->hasFile('resume')) {
+            $resumePath = saveResume($request->file('resume'));
+        }
+
+        Resume::create([
+            'full_name' => $request->full_name,
+            'email' => $request->email,
+            'mobile_number' => $request->mobile_number,
+            'city_country' => $request->city_country,
+            'nationality' => $request->nationality,
+            'years_experience' => $request->years_experience,
+            'academic_qualification' => $request->academic_qualification,
+            'major' => $request->major,
+            'preferred_job_fields' => $request->preferred_job_fields,
+            'job_types' => json_encode($request->job_type),
+            'resume' => $resumePath,
+        ]);
+
+        $notify[] = ['success', __('Your resume has been submitted successfully!')];
+
+        return redirect()->back()->withNotify($notify);
+
     }
 }
 

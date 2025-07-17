@@ -85,17 +85,6 @@
 
     <?php echo $__env->yieldPushContent('script'); ?>
 
-      <!-- JavaScript -->
-    <script>
-        document.querySelector('.sidebar-toggle').addEventListener('click', () => {
-            document.querySelector('.sidebar').classList.add('active');
-        });
-
-        document.querySelector('.close-btn').addEventListener('click', () => {
-            document.querySelector('.sidebar').classList.remove('active');
-        });
-    </script>
-
 
     <script>
         function showMobileMenu() {

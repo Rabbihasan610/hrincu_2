@@ -54,6 +54,8 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/community-engagement', 'communityEngagement')->name('community.engagement');
     Route::get('/community-partnership-request', 'communityPartnershipRequest')->name('community.partnership.request');
     Route::get('/licenses-documents', 'licensesDocument')->name('licenses.document');
+    Route::get('/submit-resume', 'submitResume')->name('submit.resume');
+    Route::post('/submit-resume-store', 'submitResumeStore')->name('submit.resume.store');
 
 
     Route::get('/jobincu-service', 'jobincuService')->name('jobincu.service');

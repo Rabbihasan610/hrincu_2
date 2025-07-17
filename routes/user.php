@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebController;
 use App\Http\Controllers\User\JobController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\ResumeController;
@@ -12,7 +13,8 @@ use App\Http\Controllers\User\Auth\RegisterController;
 use App\Http\Controllers\User\AuthorizationController;
 use App\Http\Controllers\User\Auth\ResetPasswordController;
 use App\Http\Controllers\User\Auth\ForgotPasswordController;
-use App\Http\Controllers\WebController;
+use App\Http\Controllers\User\Auth\EmployeeRegisterController;
+use App\Http\Controllers\User\Auth\ServiceProviderRegisterController;
 
 Route::middleware('guest')->group(function () {
 
@@ -21,6 +23,9 @@ Route::middleware('guest')->group(function () {
         Route::post('register', 'store');
         Route::post('check-mail', 'checkUser')->name('checkUser');
     });
+
+    Route::post('employee-register', [EmployeeRegisterController::class, 'store'])->name('employee.register');
+    Route::post('service-provider', [ServiceProviderRegisterController::class, 'store'])->name('provider.register');
 
     Route::controller(ForgotPasswordController::class)->prefix('password')->name('password.')->group(function () {
         Route::get('reset', 'showLinkRequestForm')->name('request');

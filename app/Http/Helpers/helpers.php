@@ -503,18 +503,13 @@ if (!function_exists('saveResume')) {
 
         $file->move(public_path($location), $filename);
 
-        $resume = new Resume();
-        $resume->user_id = auth()->id();
-        $resume->video_link = $video_link;
-        $resume->resume = $filename;
-        $resume->save();
-
-        return $resume;
+        return $filename;
     }
 }
 
 
 if (!function_exists('safe_count')) {
+
     function safe_count($value) {
         if (is_array($value) || $value instanceof Countable) {
             return count($value);

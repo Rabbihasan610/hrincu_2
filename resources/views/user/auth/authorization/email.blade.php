@@ -8,16 +8,16 @@
                 <h5 class="pb-3 text-center border-bottom">@lang('Verify Email Address')</h5>
                 <form action="{{route('user.verify.email')}}" method="POST" class="submit-form">
                     @csrf
-                    <p class="verification-text">@lang('A 6 digit verification code sent to your email address'):  {{ showEmailAddress(auth()->user()->email) }}</p>
+                    <p class="mb-3">@lang('A 6 digit verification code sent to your email address'):  {{ showEmailAddress(auth()->user()->email) }}</p>
 
                     @include('partials.verification_code')
 
                     <div class="mb-3">
-                        <button type="submit" class="btn btn-base w-100">@lang('Submit')</button>
+                        <button type="submit" class="btn btn-primary w-100">@lang('Submit')</button>
                     </div>
 
                     <div class="mb-3">
-                        <p>
+                        <p class="mb-1">
                             @lang('If you don\'t get any code'), <a href="{{route('user.send.verify.code', 'email')}}"> @lang('Try again')</a>
                         </p>
 
