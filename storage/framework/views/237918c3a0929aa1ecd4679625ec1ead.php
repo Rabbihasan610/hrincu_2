@@ -162,24 +162,16 @@
 
         <section class="py-16 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto bg-purple-900 rounded-xl p-8 md:p-12 text-center">
-                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Are You Part of One of These Sectors?</h2>
-                <p class="text-base sm:text-lg text-white text-opacity-80 mb-8">We are ready to deliver tailored solutions that fit your needs.</p>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4"><?php echo app('translator')->get('Interested in Partnering with Us?'); ?></h2>
+                <p class="text-base sm:text-lg text-white text-opacity-80 mb-8 w-1/2 mx-auto"><?php echo app('translator')->get('We invite you to submit a partnership request and collaborate with us on designing impactful initiatives that serve communities and foster human development.'); ?></p>
                 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 transition duration-300 ease-in-out">
+                    <a href="<?php echo e(route('community.partnership.request')); ?>" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 transition duration-300 ease-in-out">
                         <?php echo app('translator')->get('Submit Request'); ?>
-                    </button>
-                    <button class="bg-transparent border-1 border-white text-white font-semibold py-3 px-8 transition duration-300 ease-in-out hover:bg-white hover:text-purple-900">
-                        <?php echo app('translator')->get('Contact Us'); ?>
-                    </button>
+</a>
                 </div>
             </div>
         </section>
 
-        <?php if(@$sections->secs != null): ?>
-            <?php $__currentLoopData = json_decode($sections->secs); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php echo $__env->make("sections." . $sec, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make("web.layouts.frontend", ["title" => gs("site_name")], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\hrincu_v2\resources\views/web/community_engagement.blade.php ENDPATH**/ ?>

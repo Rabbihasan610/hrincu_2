@@ -7,6 +7,7 @@ use App\Http\Controllers\SupportController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\User\ServiceController;
 use App\Http\Controllers\User\FavoriteController;
+use App\Http\Controllers\Admin\PartnershipRequestController;
 
 Route::get('/clear', function () {
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
@@ -33,6 +34,8 @@ Route::get('our-service-rerquest/{slug}', [WebController::class, 'ourServiceRequ
 Route::post('/our-services/request/{slug}', [WebController::class, 'submitForm'])
     ->name('ourservice.submit');
 
+Route::post('/community-partnership-request-store', [PartnershipRequestController::class, 'store'])->name('community.partnership.request.store');
+
 
 Route::controller(WebController::class)->group(function () {
     Route::get('/contact', 'contact')->name('contact');
@@ -53,6 +56,8 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/special-training', 'specialTraining')->name('special.training');
     Route::get('/community-engagement', 'communityEngagement')->name('community.engagement');
     Route::get('/community-partnership-request', 'communityPartnershipRequest')->name('community.partnership.request');
+    Route::get('/training-and-qualification-request/{slug?}', 'trainingAndQualificationRequest')->name('training.and.qualification.request');
+
     Route::get('/licenses-documents', 'licensesDocument')->name('licenses.document');
     Route::get('/submit-resume', 'submitResume')->name('submit.resume');
     Route::post('/submit-resume-store', 'submitResumeStore')->name('submit.resume.store');

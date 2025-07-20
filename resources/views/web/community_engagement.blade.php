@@ -145,22 +145,14 @@
 
         <section class="py-16 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto bg-purple-900 rounded-xl p-8 md:p-12 text-center">
-                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Are You Part of One of These Sectors?</h2>
-                <p class="text-base sm:text-lg text-white text-opacity-80 mb-8">We are ready to deliver tailored solutions that fit your needs.</p>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">@lang('Interested in Partnering with Us?')</h2>
+                <p class="text-base sm:text-lg text-white text-opacity-80 mb-8 w-1/2 mx-auto">@lang('We invite you to submit a partnership request and collaborate with us on designing impactful initiatives that serve communities and foster human development.')</p>
                 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 transition duration-300 ease-in-out">
+                    <a href="{{ route('community.partnership.request') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 transition duration-300 ease-in-out">
                         @lang('Submit Request')
-                    </button>
-                    <button class="bg-transparent border-1 border-white text-white font-semibold py-3 px-8 transition duration-300 ease-in-out hover:bg-white hover:text-purple-900">
-                        @lang('Contact Us')
-                    </button>
+</a>
                 </div>
             </div>
         </section>
 
-        @if (@$sections->secs != null)
-            @foreach (json_decode($sections->secs) as $sec)
-                @include("sections." . $sec)
-            @endforeach
-        @endif
 @endsection
