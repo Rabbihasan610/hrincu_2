@@ -63,9 +63,13 @@
                     <a href="{{ route('admin.sectors.index') }}"><i
                             class="bi bi-record-circle"></i>@lang('Targeted Sectors')</a>
                 </li>
-                <li class="{{ menuActive('admin.trainingpath*') }}">
-                    <a href="{{ route('admin.trainingpath.index') }}"><i
-                            class="bi bi-record-circle"></i>@lang('Training Path')</a>
+                <li class="{{ menuActive('admin.trainingprogramcategory.index') }}">
+                    <a href="{{ route('admin.trainingprogramcategory.index') }}"><i
+                            class="bi bi-record-circle"></i>@lang('Training Program Category')</a>
+                </li>
+                <li class="{{ menuActive('admin.trainingprogram.index') }}">
+                    <a href="{{ route('admin.trainingprogram.index') }}"><i
+                            class="bi bi-record-circle"></i>@lang('Training Program')</a>
                 </li>
                 <li class="{{ menuActive('admin.community.partnership*') }}">
                     <a href="{{ route('admin.community.partnership.index') }}"><i

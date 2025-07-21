@@ -57,6 +57,7 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/community-engagement', 'communityEngagement')->name('community.engagement');
     Route::get('/community-partnership-request', 'communityPartnershipRequest')->name('community.partnership.request');
     Route::get('/training-and-qualification-request/{slug?}', 'trainingAndQualificationRequest')->name('training.and.qualification.request');
+    Route::get('/job-listing', 'jobListing')->name('job.listing');
 
     Route::get('/licenses-documents', 'licensesDocument')->name('licenses.document');
     Route::get('/submit-resume', 'submitResume')->name('submit.resume');
@@ -84,7 +85,6 @@ Route::controller(WebController::class)->group(function () {
 
     Route::get('/training-request/{slug}', 'trainingRequest')->name('training.request');
     Route::post('/training-request-submit', 'trainingRequestStore')->name('training.request.submit');
-
 
     // search
     Route::get('/search', 'search')->name('search');

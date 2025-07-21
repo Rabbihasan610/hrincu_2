@@ -47,6 +47,71 @@
         }
     },
 
+    "training_program_features": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Training Program Features",
+        "content": {
+            "title": "text",
+            "title_ar": "text"
+        },
+        "element": {
+            "images": {
+                "image": {
+                    "size": "500x350"
+                }
+            },
+            "title": "text",
+            "title_ar": "text",
+            "modal": true
+        }
+    },
+
+    "how_to_apply": {
+        "builder": true,
+        "no_selection": false,
+        "name": "How to Apply",
+        "content": {
+            "title": "text",
+            "title_ar": "text",
+            "images": {
+                "image": {
+                    "size": "700x550"
+                }
+            }
+        },
+        "element": {
+            "images": {
+                "image": {
+                    "size": "80x80"
+                }
+            },
+            "title": "text",
+            "title_ar": "text",
+            "modal": true
+        }
+    },
+
+    "why_apply_through_us": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Why Apply Through Us?",
+        "content": {
+            "title": "text",
+            "title_ar": "text",
+            "images": {
+                "image": {
+                    "size": "700x550"
+                }
+            }
+        },
+        "element": {
+            "title": "text",
+            "title_ar": "text",
+            "modal": true
+        }
+    },
+
     "app_download": {
         "builder": true,
         "no_selection": false,

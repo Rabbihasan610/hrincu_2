@@ -7,19 +7,21 @@ use Illuminate\Http\Request;
 use App\Rules\FileTypeValidate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Models\TrainingProgramCategory;
 
 class TrainingPathController extends Controller
 {
     public function index(Request $request)
     {
-        $services = TrainingPath::searchable(['title', 'title_ar','description'], $request->search)->paginate(10);
+        $services = TrainingPath::searchable(['title', 'title_ar','description'], $request->search)->orderBy('id', 'desc')->paginate(10);
         return view('admin.services.training_paths.index', compact('services'));
     }
 
     public function create()
     {
-        $title = 'Create Training Path';
-        return view('admin.services.training_paths.create', compact('title'));
+        $title = 'Create Training Program';
+        $categories = TrainingProgramCategory::all();
+        return view('admin.services.training_paths.create', compact('title', 'categories'));
     }
 
     public function store(Request $request, $id = null)
@@ -31,6 +33,7 @@ class TrainingPathController extends Controller
         }
 
         $request->validate([
+            'training_program_category_id' => 'required|exists:training_program_categories,id',
             'title' => 'required|string',
             'title_ar' => 'required|string',
             'description' => 'nullable|string',
@@ -52,6 +55,7 @@ class TrainingPathController extends Controller
         $service->description_ar = $request->description_ar;
         $service->status = $request->status ?? 1;
         $service->created_by = Auth::guard('admin')->user()->id;
+        $service->training_program_category_id = $request->training_program_category_id;
 
         $service->save();
 
@@ -67,14 +71,15 @@ class TrainingPathController extends Controller
         }
 
         $notify[] = ['success', $message];
-        return to_route('admin.trainingpath.index')->withNotify($notify);
+        return to_route('admin.trainingprogram.index')->withNotify($notify);
     }
 
     public function edit($id)
     {
-        $title = 'Edit Training Path';
+        $title = 'Edit Training Program';
         $service = TrainingPath::findOrFail($id);
-        return view('admin.services.training_paths.create', compact('title', 'service'));
+        $categories = TrainingProgramCategory::all();
+        return view('admin.services.training_paths.create', compact('title', 'service', 'categories'));
     }
 
     public function destroy(Request $request, $id)
@@ -87,7 +92,7 @@ class TrainingPathController extends Controller
         }
 
         $service->delete();
-        $notify[] = ['success', 'Training Path delete successfully'];
+        $notify[] = ['success', 'Training Program delete successfully'];
         return back()->withNotify($notify);
     }
 
@@ -103,7 +108,7 @@ class TrainingPathController extends Controller
 
         $service->save();
 
-        $notify[] = ['success', 'Training Path status updated successfully'];
+        $notify[] = ['success', 'Training Program status updated successfully'];
         return back()->withNotify($notify);
     }
 
@@ -125,7 +130,7 @@ class TrainingPathController extends Controller
 
         $newService->save();
 
-        $notify[] = ['success', 'Training Path duplicate successfully'];
+        $notify[] = ['success', 'Training Program duplicate successfully'];
         return back()->withNotify($notify);
     }
 }

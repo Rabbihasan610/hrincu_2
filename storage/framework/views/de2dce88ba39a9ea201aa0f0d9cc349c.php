@@ -71,7 +71,7 @@
         <a href="<?php echo e(route('training.program')); ?>" class="text-gray-700 hover:text-purple-700 text-sm"><?php echo app('translator')->get('Training Programs'); ?></a>
         <a href="<?php echo e(route('community.engagement')); ?>" class="text-gray-700 hover:text-purple-700 text-sm"><?php echo app('translator')->get('Community Engagement'); ?></a>
         <a href="<?php echo e(route('licenses.document')); ?>" class="text-gray-700 hover:text-purple-700 text-sm"><?php echo app('translator')->get('Documents & Certificate'); ?></a>
-        <a href="#" class="text-gray-700 hover:text-purple-700 text-sm"><?php echo app('translator')->get('Contact Us'); ?></a>
+        <a href="<?php echo e(route('contact')); ?>" class="text-gray-700 hover:text-purple-700 text-sm"><?php echo app('translator')->get('Contact Us'); ?></a>
         <a href="<?php echo e(route('submit.resume')); ?>" class="ml-2 px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800 transition"><?php echo app('translator')->get('Submit'); ?></a>
       </div>
     </div>
@@ -86,7 +86,7 @@
       <a href="<?php echo e(route('training.program')); ?>" class="block text-gray-700 hover:text-purple-700 text-sm"><?php echo app('translator')->get('Training Programs'); ?></a>
       <a href="<?php echo e(route('community.engagement')); ?>" class="block text-gray-700 hover:text-purple-700 text-sm"><?php echo app('translator')->get('Community Engagement'); ?></a>
       <a href="<?php echo e(route('licenses.document')); ?>" class="block text-gray-700 hover:text-purple-700 text-sm"><?php echo app('translator')->get('Documents & Certificate'); ?></a>
-      <a href="#" class="block text-gray-700 hover:text-purple-700 text-sm"><?php echo app('translator')->get('Contact Us'); ?></a>
+      <a href="<?php echo e(route('contact')); ?>" class="block text-gray-700 hover:text-purple-700 text-sm"><?php echo app('translator')->get('Contact Us'); ?></a>
       <a href="<?php echo e(route('submit.resume')); ?>" class="block mt-2 px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800"><?php echo app('translator')->get('Submit'); ?></a>
     </div>
   </div>

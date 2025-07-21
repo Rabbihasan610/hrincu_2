@@ -63,9 +63,13 @@
                     <a href="<?php echo e(route('admin.sectors.index')); ?>"><i
                             class="bi bi-record-circle"></i><?php echo app('translator')->get('Targeted Sectors'); ?></a>
                 </li>
-                <li class="<?php echo e(menuActive('admin.trainingpath*')); ?>">
-                    <a href="<?php echo e(route('admin.trainingpath.index')); ?>"><i
-                            class="bi bi-record-circle"></i><?php echo app('translator')->get('Training Path'); ?></a>
+                <li class="<?php echo e(menuActive('admin.trainingprogramcategory.index')); ?>">
+                    <a href="<?php echo e(route('admin.trainingprogramcategory.index')); ?>"><i
+                            class="bi bi-record-circle"></i><?php echo app('translator')->get('Training Program Category'); ?></a>
+                </li>
+                <li class="<?php echo e(menuActive('admin.trainingprogram.index')); ?>">
+                    <a href="<?php echo e(route('admin.trainingprogram.index')); ?>"><i
+                            class="bi bi-record-circle"></i><?php echo app('translator')->get('Training Program'); ?></a>
                 </li>
                 <li class="<?php echo e(menuActive('admin.community.partnership*')); ?>">
                     <a href="<?php echo e(route('admin.community.partnership.index')); ?>"><i

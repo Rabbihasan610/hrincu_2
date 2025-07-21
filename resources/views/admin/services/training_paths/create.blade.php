@@ -2,7 +2,7 @@
 @section('panel')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('admin.trainingpath.store', @$service->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.trainingprogram.store', @$service->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-4">
@@ -10,6 +10,19 @@
                         <x-image-uploader image="{{ @$service->image }}" name="image" class="w-100" type="trainingpath"/>
                     </div>
                     <div class="col-md-8">
+
+                        <div class="mb-3 form-group">
+                            <label class="form-label">@lang('Category') <span class="text-danger fs-6">*</span></label>
+                            <select name="training_program_category_id" class="form-control select2-basic">
+                                <option value="">@lang('Select Category')</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" {{ old('training_program_category_id', @$service->training_program_category_id) == $category->id ? 'selected' : '' }}>
+                                        {{ $category->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="mb-3 form-group">
                             <label class="form-label">@lang('Title') <span class="text-danger fs-6">*</span></label>
                             <input type="text" name="title" class="form-control" required
@@ -21,8 +34,8 @@
                             <input type="text" name="title_ar" class="form-control" required
                                 value="{{ old('title_ar', @$service->title_ar) }}">
                         </div>
-
-                        {{-- <div class="mb-3 form-group">
+                        
+                        <div class="mb-3 form-group">
                             <label class="form-label">@lang('Description') <span class="text-danger fs-6">*</span></label>
                             <textarea class="form-control" name="description" required>{{ old('description', @$service->description) }}</textarea>
                         </div>
@@ -30,7 +43,7 @@
                         <div class="mb-3 form-group">
                             <label class="form-label">@lang('Description Ar') <span class="text-danger fs-6">*</span></label>
                             <textarea class="form-control" name="description_ar" required>{{ old('description_ar', @$service->description_ar) }}</textarea>
-                        </div> --}}
+                        </div> 
 
                         <div class="mb-3 form-group">
                             <button type="submit" class="btn btn-primary w-100">@lang('Submit')</button>
@@ -44,7 +57,7 @@
 @endsection
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.trainingpath.index') }}" class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i>
+    <a href="{{ route('admin.trainingprogram.index') }}" class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i>
         @lang('Back')</a>
 @endpush
 

@@ -55,34 +55,28 @@
       <div>
         <h3 class="font-semibold mb-3"><?php echo app('translator')->get('Top Services'); ?></h3>
         <ul class="space-y-1 text-sm">
-          <li>&gt;&gt; <?php echo app('translator')->get('Labor Service'); ?></li>
-          <li>&gt;&gt; <?php echo app('translator')->get('Manpower Supply'); ?></li>
-          <li class="font-semibold">&gt;&gt; <?php echo app('translator')->get('Logistic Service'); ?></li>
-          <li>&gt;&gt; <?php echo app('translator')->get('Visa Processing'); ?></li>
-          <li>&gt;&gt; <?php echo app('translator')->get('Building Relationship'); ?></li>
-          <li>&gt;&gt; <?php echo app('translator')->get('Consultation'); ?></li>
+          <li>&gt;&gt;<a href="<?php echo e(route('submit.resume')); ?>"><?php echo app('translator')->get('Upload Resume'); ?></a></li>
+          <li>&gt;&gt;<a href="<?php echo e(route('special.training')); ?>"><?php echo app('translator')->get('Special Training'); ?></a></li>
+          <li>&gt;&gt;<a href="<?php echo e(route('training.program')); ?>"><?php echo app('translator')->get('Training Program'); ?></a></li>
+          <li>&gt;&gt;<a href="<?php echo e(route('job.listing')); ?>"><?php echo app('translator')->get('Job Listing'); ?></a></li>
         </ul>
       </div>
 
       <div>
         <h3 class="font-semibold mb-3"><?php echo app('translator')->get('Important Link'); ?></h3>
         <ul class="space-y-1 text-sm">
-          <li>&gt;&gt; <?php echo app('translator')->get('Training & Rehabilitation'); ?></li>
-          <li>&gt;&gt; <?php echo app('translator')->get('Care for Employee'); ?></li>
-          <li class="font-semibold">&gt;&gt; <?php echo app('translator')->get('Talent Recruitment'); ?></li>
-          <li>&gt;&gt; <?php echo app('translator')->get('Awareness & Events'); ?></li>
-          <li>&gt;&gt; <?php echo app('translator')->get('Staff Solution'); ?></li>
-          <li>&gt;&gt; <?php echo app('translator')->get('Talent Recruitment'); ?></li>
+          <li>&gt;&gt;<a href="<?php echo e(route('user.register', ['type' => 'job-seeker'] )); ?>"><?php echo app('translator')->get('Register as a Job Seeker'); ?></a></li>
+          <li>&gt;&gt;<a href="<?php echo e(route('user.register', ['type' => 'employer'])); ?>"><?php echo app('translator')->get('Register as an Employer'); ?></a></li>
+          <li>&gt;&gt;<a href="<?php echo e(route('user.register', ['type' => 'service-provider'])); ?>"><?php echo app('translator')->get('Register as a Service Provider'); ?></a></li>
+          <li>&gt;&gt;<a href="<?php echo e(route('user.login')); ?>"><?php echo app('translator')->get('Login'); ?></a></li>
         </ul>
       </div>
 
       <div>
         <h3 class="font-semibold mb-3"><?php echo app('translator')->get('Help Center'); ?></h3>
         <ul class="space-y-1 text-sm">
-          <li>&gt;&gt; <?php echo app('translator')->get('About us'); ?></li>
-          <li>&gt;&gt; <?php echo app('translator')->get('Contact us'); ?></li>
-          <li class="text-green-400">&gt;&gt; <?php echo app('translator')->get('How it works'); ?></li>
-          <li>&gt;&gt; <?php echo app('translator')->get('Help & FAQs'); ?></li>
+          <li>&gt;&gt; <a href="<?php echo e(route('about')); ?>"><?php echo app('translator')->get('About us'); ?></a></li>
+          <li>&gt;&gt; <a href="<?php echo e(route('contact')); ?>"><?php echo app('translator')->get('Contact us'); ?></a></li>
         </ul>
       </div>
     </div>

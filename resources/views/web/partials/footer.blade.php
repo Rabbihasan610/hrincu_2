@@ -52,34 +52,28 @@
       <div>
         <h3 class="font-semibold mb-3">@lang('Top Services')</h3>
         <ul class="space-y-1 text-sm">
-          <li>&gt;&gt; @lang('Labor Service')</li>
-          <li>&gt;&gt; @lang('Manpower Supply')</li>
-          <li class="font-semibold">&gt;&gt; @lang('Logistic Service')</li>
-          <li>&gt;&gt; @lang('Visa Processing')</li>
-          <li>&gt;&gt; @lang('Building Relationship')</li>
-          <li>&gt;&gt; @lang('Consultation')</li>
+          <li>&gt;&gt;<a href="{{ route('submit.resume') }}">@lang('Upload Resume')</a></li>
+          <li>&gt;&gt;<a href="{{ route('special.training') }}">@lang('Special Training')</a></li>
+          <li>&gt;&gt;<a href="{{ route('training.program') }}">@lang('Training Program')</a></li>
+          <li>&gt;&gt;<a href="{{ route('job.listing') }}">@lang('Job Listing')</a></li>
         </ul>
       </div>
 
       <div>
         <h3 class="font-semibold mb-3">@lang('Important Link')</h3>
         <ul class="space-y-1 text-sm">
-          <li>&gt;&gt; @lang('Training & Rehabilitation')</li>
-          <li>&gt;&gt; @lang('Care for Employee')</li>
-          <li class="font-semibold">&gt;&gt; @lang('Talent Recruitment')</li>
-          <li>&gt;&gt; @lang('Awareness & Events')</li>
-          <li>&gt;&gt; @lang('Staff Solution')</li>
-          <li>&gt;&gt; @lang('Talent Recruitment')</li>
+          <li>&gt;&gt;<a href="{{ route('user.register', ['type' => 'job-seeker'] ) }}">@lang('Register as a Job Seeker')</a></li>
+          <li>&gt;&gt;<a href="{{ route('user.register', ['type' => 'employer']) }}">@lang('Register as an Employer')</a></li>
+          <li>&gt;&gt;<a href="{{ route('user.register', ['type' => 'service-provider']) }}">@lang('Register as a Service Provider')</a></li>
+          <li>&gt;&gt;<a href="{{ route('user.login') }}">@lang('Login')</a></li>
         </ul>
       </div>
 
       <div>
         <h3 class="font-semibold mb-3">@lang('Help Center')</h3>
         <ul class="space-y-1 text-sm">
-          <li>&gt;&gt; @lang('About us')</li>
-          <li>&gt;&gt; @lang('Contact us')</li>
-          <li class="text-green-400">&gt;&gt; @lang('How it works')</li>
-          <li>&gt;&gt; @lang('Help & FAQs')</li>
+          <li>&gt;&gt; <a href="{{ route('about') }}">@lang('About us')</a></li>
+          <li>&gt;&gt; <a href="{{ route('contact') }}">@lang('Contact us')</a></li>
         </ul>
       </div>
     </div>

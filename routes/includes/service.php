@@ -52,7 +52,7 @@ Route::group(['prefix' => 'sectors', 'as' => 'sectors.'], function () {
     Route::get('/duplicate/{id}', [SectorController::class, 'duplicate'])->name('duplicate');
 });
 
-Route::group(['prefix' => 'trainingpath', 'as' => 'trainingpath.'], function () {
+Route::group(['prefix' => 'training-program', 'as' => 'trainingprogram.'], function () {
     Route::get('/', [TrainingPathController::class, 'index'])->name('index');
     Route::get('/create', [TrainingPathController::class, 'create'])->name('create');
     Route::post('/store/{id?}', [TrainingPathController::class, 'store'])->name('store');

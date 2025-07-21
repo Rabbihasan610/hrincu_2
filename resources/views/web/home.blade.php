@@ -47,18 +47,13 @@
 @endpush
 @section('content')
 
-
-
     @include('sections.hero_section')
-
-
 
     @include('sections.ourservice_request')
 
-
     <section class="bg-[#3b0764] py-16 px-4 md:px-8 lg:px-16">
         <div class="max-w-7xl mx-auto text-white">
-            <!-- Smaller heading text -->
+
             <h2 class="text-xl md:text-3xl font-semibold mb-6">
                 @lang('Contact Us Now')
             </h2>
@@ -70,7 +65,6 @@
                 <li>@lang('Start now — well guide you step by step')</li>
             </ul>
 
-            <!-- Smaller buttons -->
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                 <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out text-center text-sm">
                     @lang('Submit Request')
@@ -83,7 +77,6 @@
     </section>
 
 
-
     @if ($community_partnerships->count() > 0)
         <div class="container mx-auto px-4 py-10 md:py-20">
             @foreach ($community_partnerships as $community_partnership)
@@ -93,7 +86,7 @@
                     <p class="text-base md:text-lg text-gray-600 mb-6">
                         {{ $community_partnership?->lang('description') }}
                     </p>
-                    <a href="#" class="inline-block px-6 py-2 border-1 border-blue-500 text-blue-500 rounded-md font-semibold hover:bg-blue-500 hover:text-white transition duration-300">View Details</a>
+                    {{-- <a href="#" class="inline-block px-6 py-2 border-1 border-blue-500 text-blue-500 rounded-md font-semibold hover:bg-blue-500 hover:text-white transition duration-300">@lang('View Details')</a> --}}
                 </div>
 
                 <div class="w-full md:w-1/2 h-64 md:h-96 overflow-hidden rounded-md order-2 {{ $loop->odd ? 'md:order-2' : 'md:order-1' }}">
