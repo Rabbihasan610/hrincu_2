@@ -21,23 +21,31 @@
 <?php unset($__componentOriginale19f62b34dfe0bfdf95075badcb45bc2); ?>
 <?php endif; ?>
 
-<section class="py-12 bg-gray-50">
-    <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row gap-4">
-            <div class="md:w-1/2 flex flex-col justify-center p-6">
-                <h3 class="text-3xl font-bold mb-4">Human Resources Incubator</h3>
-                <p class="text-gray-700">
-                    A comprehensive platform specialized in providing professional solutions in recruitment, employment, and training, in addition to smart outsourcing services and contact center management. We combine modern technology with local and international institutional partnerships to serve as a unified gateway for empowering individuals and organizations, enhancing human resource efficiency across sectors, and supporting Saudization, sustainable development, and Vision 2030.
-                </p>
-            </div>
+<?php
+$heroBanner = getHeroBanner('about');
 
-            <div class="md:w-1/2 flex items-center justify-center p-6">
-                <img src="<?php echo e(asset('img/about_img.png')); ?>" alt="" class="max-w-full h-auto">
-            </div>
-        </div>
-    </div>
-</section>
+?>
 
+<?php if (isset($component)) { $__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.hero-banner','data' => ['subtitle' => $heroBanner?->subtitle,'title' => $heroBanner?->title,'description' => $heroBanner?->description,'image' => $heroBanner?->image]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('hero-banner'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['subtitle' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->subtitle),'title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->title),'description' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->description),'image' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->image)]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5)): ?>
+<?php $attributes = $__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5; ?>
+<?php unset($__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5)): ?>
+<?php $component = $__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5; ?>
+<?php unset($__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5); ?>
+<?php endif; ?>
 
 <section class="py-12 bg-gray-50">
     <div class="max-w-4xl mx-auto">
@@ -184,74 +192,21 @@
     <div class="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-8">Targeted Sectors</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-8"><?php echo app('translator')->get('Targeted Sectors'); ?></h2>
+
+            <?php
+                $sectors = \App\Models\Sectors::where('status', 1)->get();
+            ?>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Commercial and service sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Healthcare sector</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Industrial and mining sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Transport and logistics sector</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Agricultural and food sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3 rounded-circle" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Higher education sector</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Hospitality, tourism, and hotel sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Communication and contact center sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Restaurant and cafe sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Environmental and support service sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Construction and building sectors</span>
-            </div>
+                <?php $__currentLoopData = $sectors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sector): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="flex items-center">
+                        <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700 font-bold"><?php echo e($sector?->lang('title')); ?></span>
+                    </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
 

@@ -12,6 +12,42 @@
         }
     },
 
+    "hero_banner": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Hero Banner",
+        "element": {
+            "images": {
+                "image": {
+                    "size": "750x450"
+                }
+            },
+            "subtitle": "text",
+            "subtitle_ar": "text",
+            "title": "text",
+            "title_ar": "text",
+            "description": "textarea-nic",
+            "description_ar": "textarea-nic",
+            "page_slug": "text",
+            "modal": false
+        }
+
+    },
+
+    "call_to_action": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Call To Action",
+        "element": {
+            "title": "text",
+            "title_ar": "text",
+            "description": "text",
+            "description_ar": "text",
+            "page_slug": "text",
+            "modal": true
+        }
+    },
+
     "app_download": {
         "builder": true,
         "no_selection": false,

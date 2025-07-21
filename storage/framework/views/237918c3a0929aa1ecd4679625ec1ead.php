@@ -21,25 +21,31 @@
 <?php endif; ?>
 
 
-        <section>
-            <div class="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
-                <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-                <div class="md:w-1/2">
-                    <p class="text-lg font-semibold text-gray-600 mb-2">Community Partnership</p>
-                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">Together for Empowerment and Sustainable Impact</h2>
-                    <p class="text-base sm:text-lg text-gray-700 leading-relaxed">
-                        At HR Incubator, we believe that building strategic partnerships with government entities, the private sector, embassies, and non-profit organizations is key to achieving comprehensive and sustainable development in the labor market and the broader community. Our aim is to launch collaborative initiatives that enhance human capital, empower targeted groups, and promote a culture of work and social integration.
-                    </p>
-                </div>
-
-                <div class="md:w-1/2 flex justify-center md:justify-end">
-                    <div class="rounded-lg overflow-hidden w-full">
-                        <img src="https://placehold.co/700x400" alt="Modern buildings cityscape" class="w-full h-auto">
-                    </div>
-                </div>
-                </div>
-            </div>
-        </section>
+        <?php
+        $heroBanner = getHeroBanner('community-engagement');
+        
+        ?>
+        
+        <?php if (isset($component)) { $__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.hero-banner','data' => ['subtitle' => $heroBanner?->subtitle,'title' => $heroBanner?->title,'description' => $heroBanner?->description,'image' => $heroBanner?->image]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('hero-banner'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['subtitle' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->subtitle),'title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->title),'description' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->description),'image' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->image)]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5)): ?>
+<?php $attributes = $__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5; ?>
+<?php unset($__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5)): ?>
+<?php $component = $__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5; ?>
+<?php unset($__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5); ?>
+<?php endif; ?>
 
 
 
@@ -160,17 +166,30 @@
         </section>
 
 
-        <section class="py-16 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto bg-purple-900 rounded-xl p-8 md:p-12 text-center">
-                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4"><?php echo app('translator')->get('Interested in Partnering with Us?'); ?></h2>
-                <p class="text-base sm:text-lg text-white text-opacity-80 mb-8 w-1/2 mx-auto"><?php echo app('translator')->get('We invite you to submit a partnership request and collaborate with us on designing impactful initiatives that serve communities and foster human development.'); ?></p>
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="<?php echo e(route('community.partnership.request')); ?>" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 transition duration-300 ease-in-out">
-                        <?php echo app('translator')->get('Submit Request'); ?>
-</a>
-                </div>
-            </div>
-        </section>
+        <?php
+        $callToAction = getHeroBanner('community-engagement', 'call_to_action');
+        ?>
+
+        <?php if (isset($component)) { $__componentOriginal2c9369c50378c35954451f9e19572a01 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal2c9369c50378c35954451f9e19572a01 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.call-to-action','data' => ['title' => $callToAction?->title,'description' => $callToAction?->description,'linkButton' => ''.e(route('community.partnership.request')).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('call-to-action'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($callToAction?->title),'description' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($callToAction?->description),'link_button' => ''.e(route('community.partnership.request')).'']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal2c9369c50378c35954451f9e19572a01)): ?>
+<?php $attributes = $__attributesOriginal2c9369c50378c35954451f9e19572a01; ?>
+<?php unset($__attributesOriginal2c9369c50378c35954451f9e19572a01); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal2c9369c50378c35954451f9e19572a01)): ?>
+<?php $component = $__componentOriginal2c9369c50378c35954451f9e19572a01; ?>
+<?php unset($__componentOriginal2c9369c50378c35954451f9e19572a01); ?>
+<?php endif; ?>
 
 <?php $__env->stopSection(); ?>
 
