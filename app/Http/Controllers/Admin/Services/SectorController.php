@@ -12,13 +12,13 @@ class SectorController extends Controller
 {
     public function index(Request $request)
     {
-        $services = Sectors::searchable(['title', 'title_ar','description'], $request->search)->paginate(10);
+        $services = Sectors::searchable(['title', 'title_ar','description'], $request->search)->orderBy('id', 'desc')->paginate(10);
         return view('admin.services.sectors.index', compact('services'));
     }
 
     public function create()
     {
-        $title = 'Create Sector';
+        $title = 'Create Targeted Sector';
         return view('admin.services.sectors.create', compact('title'));
     }
 
@@ -33,8 +33,8 @@ class SectorController extends Controller
         $request->validate([
             'title' => 'required|string',
             'title_ar' => 'required|string',
-            'description' => 'required|string',
-            'description_ar' => 'required|string',
+            'description' => 'nullable|string',
+            'description_ar' => 'nullable|string',
             'image' => [$validation, 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
         ]);
 
@@ -72,7 +72,7 @@ class SectorController extends Controller
 
     public function edit($id)
     {
-        $title = 'Edit Sectors';
+        $title = 'Edit Targeted Sector';
         $service = Sectors::findOrFail($id);
         return view('admin.services.sectors.create', compact('title', 'service'));
     }

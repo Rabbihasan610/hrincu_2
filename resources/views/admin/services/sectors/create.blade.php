@@ -23,13 +23,13 @@
                         </div>
 
                         <div class="mb-3 form-group">
-                            <label class="form-label">@lang('Description') <span class="text-danger fs-6">*</span></label>
-                            <textarea class="form-control" name="description" required>{{ old('description', @$service->description) }}</textarea>
+                            <label class="form-label">@lang('Description')</label>
+                            <textarea class="form-control" name="description">{{ old('description', @$service->description) }}</textarea>
                         </div>
 
                         <div class="mb-3 form-group">
-                            <label class="form-label">@lang('Description Ar') <span class="text-danger fs-6">*</span></label>
-                            <textarea class="form-control" name="description_ar" required>{{ old('description_ar', @$service->description_ar) }}</textarea>
+                            <label class="form-label">@lang('Description Ar')</label>
+                            <textarea class="form-control" name="description_ar">{{ old('description_ar', @$service->description_ar) }}</textarea>
                         </div>
 
                         <div class="mb-3 form-group">

@@ -61,7 +61,7 @@
             <ul>
                 <li class="{{ menuActive('admin.sectors*') }}">
                     <a href="{{ route('admin.sectors.index') }}"><i
-                            class="bi bi-record-circle"></i>@lang('Sectors')</a>
+                            class="bi bi-record-circle"></i>@lang('Targeted Sectors')</a>
                 </li>
                 <li class="{{ menuActive('admin.trainingpath*') }}">
                     <a href="{{ route('admin.trainingpath.index') }}"><i

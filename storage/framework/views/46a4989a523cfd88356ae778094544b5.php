@@ -20,7 +20,6 @@
 <?php unset($__componentOriginale19f62b34dfe0bfdf95075badcb45bc2); ?>
 <?php endif; ?>
 
-
         <section class="bg-[#FFFFFF] px-4 py-16 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-7xl">
                 <h3 class="mb-3 text-3xl text-gray-900">Training Program Features</h3>
@@ -309,20 +308,30 @@
         </section>
 
 
-        <section class="py-16 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto bg-purple-900 rounded-xl p-8 md:p-12 text-center">
-                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Are You Part of One of These Sectors?</h2>
-                <p class="text-base sm:text-lg text-white text-opacity-80 mb-8">We are ready to deliver tailored solutions that fit your needs.</p>
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 transition duration-300 ease-in-out">
-                        <?php echo app('translator')->get('Submit Request'); ?>
-                    </button>
-                    <button class="bg-transparent border-1 border-white text-white font-semibold py-3 px-8 transition duration-300 ease-in-out hover:bg-white hover:text-purple-900">
-                        <?php echo app('translator')->get('Contact Us'); ?>
-                    </button>
-                </div>
-            </div>
-        </section>
+        <?php
+        $callToAction = getHeroBanner('training-program', 'call_to_action');
+        ?>
+
+        <?php if (isset($component)) { $__componentOriginal2c9369c50378c35954451f9e19572a01 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal2c9369c50378c35954451f9e19572a01 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.call-to-action','data' => ['title' => $callToAction?->title,'description' => $callToAction?->description,'linkButton' => ''.e(route('training.and.qualification.request')).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('call-to-action'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($callToAction?->title),'description' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($callToAction?->description),'link_button' => ''.e(route('training.and.qualification.request')).'']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal2c9369c50378c35954451f9e19572a01)): ?>
+<?php $attributes = $__attributesOriginal2c9369c50378c35954451f9e19572a01; ?>
+<?php unset($__attributesOriginal2c9369c50378c35954451f9e19572a01); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal2c9369c50378c35954451f9e19572a01)): ?>
+<?php $component = $__componentOriginal2c9369c50378c35954451f9e19572a01; ?>
+<?php unset($__componentOriginal2c9369c50378c35954451f9e19572a01); ?>
+<?php endif; ?>
 
         <?php if(@$sections->secs != null): ?>
             <?php $__currentLoopData = json_decode($sections->secs); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
