@@ -34,6 +34,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('assets/admin/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/web/css/styles.css') }}">
@@ -53,10 +54,14 @@
 <body>
     @yield('panel')
     <script src="{{ asset('assets/global/js/jquery.min.js') }}"></script>
-     <script src="{{ asset('assets/global/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/global/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/web/js/jssocials.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/nicEdit.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
     @stack('script-lib')
     @include('partials.plugins')
     @include('partials.notify')
@@ -80,15 +85,12 @@
 
     @stack('script')
 
-      <!-- JavaScript -->
-    <script>
-        document.querySelector('.sidebar-toggle').addEventListener('click', () => {
-            document.querySelector('.sidebar').classList.add('active');
-        });
 
-        document.querySelector('.close-btn').addEventListener('click', () => {
-            document.querySelector('.sidebar').classList.remove('active');
-        });
+    <script>
+        function showMobileMenu() {
+            const menu = document.getElementById('showMenu');
+            menu.classList.toggle('hidden');
+        }
     </script>
 
 

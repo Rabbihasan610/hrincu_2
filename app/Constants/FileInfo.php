@@ -67,10 +67,15 @@ class FileInfo
             'path' => 'assets/admin/images/trainingpath',
             'size' => '570x440',
         ];
-        
+
         $data['sector'] = [
             'path' => 'assets/admin/images/sector',
             'size' => '416x300',
+        ];
+
+        $data['deafult_service'] = [
+            'path' => 'assets/admin/images/deafult_service',
+            'size' => '800x500',
         ];
 
         return $data;

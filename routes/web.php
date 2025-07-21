@@ -48,6 +48,16 @@ Route::controller(WebController::class)->group(function () {
     // pages
 
     Route::get('/service', 'service')->name('service');
+    Route::get('/targeted-sector', 'targetedSector')->name('targeted.sector');
+    Route::get('/training-program', 'trainingProgram')->name('training.program');
+    Route::get('/special-training', 'specialTraining')->name('special.training');
+    Route::get('/community-engagement', 'communityEngagement')->name('community.engagement');
+    Route::get('/community-partnership-request', 'communityPartnershipRequest')->name('community.partnership.request');
+    Route::get('/licenses-documents', 'licensesDocument')->name('licenses.document');
+    Route::get('/submit-resume', 'submitResume')->name('submit.resume');
+    Route::post('/submit-resume-store', 'submitResumeStore')->name('submit.resume.store');
+
+
     Route::get('/jobincu-service', 'jobincuService')->name('jobincu.service');
     Route::get('/sectors', 'sectors')->name('sectors');
     Route::get('/community-partnership', 'communityPartnership')->name('community.partnership');

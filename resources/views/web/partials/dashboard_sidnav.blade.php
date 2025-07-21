@@ -71,7 +71,7 @@
 
             <ul class="list-unstyled collapse submenu" id="manage-resume">
 
-                <li><a href="{{ route('user.resume') }}"><i class="fas fa-file-text me-2 mt-1"></i>
+                <li><a href="{{ route('user.resume') }}" class="text-dark"><i class="fas fa-file-text me-2 mt-1"></i>
                         @lang('View Resume')</a></li>
                 <li><a href="{{ route('user.resume.edit') }}"><i class="fas fa-pencil-square me-2 mt-1"></i>
                         @lang('Edit Resume')</a></li>

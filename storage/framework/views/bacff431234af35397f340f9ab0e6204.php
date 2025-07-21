@@ -1,0 +1,205 @@
+<?php $__env->startSection('content'); ?>
+
+<?php if (isset($component)) { $__componentOriginale19f62b34dfe0bfdf95075badcb45bc2 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.breadcrumb','data' => ['title' => 'Licenses & Documents']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('breadcrumb'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['title' => 'Licenses & Documents']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2)): ?>
+<?php $attributes = $__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2; ?>
+<?php unset($__attributesOriginale19f62b34dfe0bfdf95075badcb45bc2); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginale19f62b34dfe0bfdf95075badcb45bc2)): ?>
+<?php $component = $__componentOriginale19f62b34dfe0bfdf95075badcb45bc2; ?>
+<?php unset($__componentOriginale19f62b34dfe0bfdf95075badcb45bc2); ?>
+<?php endif; ?>
+
+<section>
+    <div class="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="md:w-1/2">
+            <p class="text-lg font-semibold text-gray-600 mb-2">Licenses & Document</p>
+            <h2 class="text-4xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">Compliance and Governance to Ensure Service Quality and Partnership Credibility</h2>
+            <p class="text-base sm:text-lg text-gray-700 leading-relaxed">
+
+                At HR Incubator, we are committed to the highest standards of transparency and regulatory compliance. We operate under official licenses and accreditations to deliver reliable and secure services for individuals, businesses, and institutional partners.
+            </p>
+        </div>
+
+        <div class="md:w-1/2 flex justify-center md:justify-end">
+            <div class="rounded-lg overflow-hidden  w-full">
+                <img src="https://placehold.co/700x400" alt="Modern buildings cityscape" class="w-full h-auto">
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Official Licenses:</h2>
+        <hr class="border-t-1 border-gray-500 mb-4">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+
+        <div class="bg-gray-200 border border-gray-200 rounded-lg p-6 text-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <p class="text-sm">Empower communities and target groups through comprehensive training and qualification programs.</p>
+        </div>
+
+        <div class="bg-gray-200 border border-gray-200 rounded-lg p-6 text-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <p class="text-sm">Support nationalization (Saudization) initiatives and improve employment opportunities</p>
+        </div>
+
+        <div class="bg-gray-200 border border-gray-200 rounded-lg p-6 text-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <p class="text-sm">Offer tailored services for expatriate workers to support cultural integration.</p>
+        </div>
+
+        <div class="bg-gray-200 border border-gray-200 rounded-lg p-6 text-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <p class="text-sm">Raise awareness of rights and responsibilities in the workplace and promote a positive work environment.</p>
+        </div>
+
+        <div class="bg-gray-200 border border-gray-200 rounded-lg p-6 text-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <p class="text-sm">Build an effective collaboration ecosystem across sectors to deliver innovative development solutions.</p>
+        </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Regulatory Documents</h2>
+        <hr class="border-t-1 border-gray-500 mb-4">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+
+            <div>
+                <div class="border border-gray-200 p-4 text-gray-800 transition-shadow duration-300 rounded-lg">
+                    <img src="http://placehold.co/300x150" class="my-2" alt="">
+                </div>
+                <p class="text-sm pt-3">Empower communities and target groups through comprehensive training and qualification programs.</p>
+            </div>
+
+            <div>
+                <div class="border border-gray-200 p-4 text-gray-800 transition-shadow duration-300 rounded-lg">
+                    <img src="http://placehold.co/300x150" class="my-2" alt="">
+                </div>
+                <p class="text-sm pt-3">Empower communities and target groups through comprehensive training and qualification programs.</p>
+            </div>
+            <div>
+                <div class="border border-gray-200 p-4 text-gray-800 transition-shadow duration-300 rounded-lg">
+                    <img src="http://placehold.co/300x150" class="my-2" alt="">
+                </div>
+                <p class="text-sm pt-3">Empower communities and target groups through comprehensive training and qualification programs.</p>
+            </div>
+
+            <div>
+                <div class="border border-gray-200 p-4 text-gray-800 transition-shadow duration-300 rounded-lg">
+                    <img src="http://placehold.co/300x150" class="my-2" alt="">
+                </div>
+                <p class="text-sm pt-3">Empower communities and target groups through comprehensive training and qualification programs.</p>
+            </div>
+
+        <div>
+                <div class="border border-gray-200 p-4 text-gray-800 transition-shadow duration-300 rounded-lg">
+                    <img src="http://placehold.co/300x150" class="my-2" alt="">
+                </div>
+                <p class="text-sm pt-3">Empower communities and target groups through comprehensive training and qualification programs.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 items-center lg:items-start">
+
+        <div class="w-full lg:w-1/2">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-3">General Form</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-2 flex flex-col justify-between">
+                    <h3 class="font-semibold  text-slate-800 mb-1">Universities and Educational Institutions</h3>
+                    <p class="text-sm text-slate-800">Joint training programs to prepare students for the job market.</p>
+                </div>
+
+                <div class="bg-purple-50 border border-purple-200 rounded-lg p-2 flex flex-col justify-between">
+                    <h3 class="font-semibold  text-slate-800 mb-1">Embassies and Diplomatic Missions</h3>
+                    <p class="text-sm text-slate-800">Organizing cultural and guidance events for expatriate communities.</p>
+                </div>
+
+                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-2 flex flex-col justify-between">
+                    <h3 class="font-semibold  text-slate-800 mb-1">Government Ministries and Authorities</h3>
+                    <p class="text-sm text-slate-800">Launching employment and capacity-building initiatives aligned with national development projects.</p>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-2 flex flex-col justify-between">
+                    <h3 class="font-semibold text-slate-800 mb-2">NGOs and Community Initiatives</h3>
+                    <p class="text-sm text-slate-800">Special empowerment programs for women, youth, and persons with disabilities.</p>
+                </div>
+
+                <div class="bg-red-50 border border-red-200 rounded-lg p-2 flex flex-col justify-between">
+                    <h3 class="font-semibold  text-slate-800 mb-1">Private Sector</h3>
+                    <p class="text-sm text-slate-800">Providing on-the-job training, employment opportunities, and organizational development.</p>
+                </div>
+
+                <div class="bg-red-50 border border-red-200 rounded-lg p-2 flex flex-col justify-between">
+                    <h3 class="font-semibold  text-slate-800 mb-1">Private Sector</h3>
+                    <p class="text-sm text-slate-800">Providing on-the-job training, employment opportunities, and organizational development.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 flex justify-center lg:justify-start">
+            <div class="bg-gray-200 rounded-xl overflow-hidden h-98 lg:h-full w-full max-w-lg lg:max-w-none mt-2">
+                <img src="https://placehold.co/600x400" alt="Partnership Buildings" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-6 px-4 sm:px-6 lg:px-4 bg-white">
+  <div class="max-w-4xl mx-auto p-2 sm:p-2 border border-green-200 bg-green-50 text-green-800">
+    <p class="text-sm sm:text-base leading-relaxed">
+      <span class="font-bold">Note:</span> All documents and templates are available in digital format and support electronic signature to streamline processes and ensure efficient execution
+    </p>
+  </div>
+</section>
+
+<section class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto bg-purple-900 rounded-xl p-8 md:p-12 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Are You Part of One of These Sectors?</h2>
+        <p class="text-base sm:text-lg text-white text-opacity-80 mb-8">We are ready to deliver tailored solutions that fit your needs.</p>
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 transition duration-300 ease-in-out">
+                <?php echo app('translator')->get('Submit Request'); ?>
+            </button>
+            <button class="bg-transparent border-1 border-white text-white font-semibold py-3 px-8 transition duration-300 ease-in-out hover:bg-white hover:text-purple-900">
+                <?php echo app('translator')->get('Contact Us'); ?>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+<?php if(@$sections->secs != null): ?>
+<?php $__currentLoopData = json_decode($sections->secs); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php echo $__env->make('sections.' . $sec, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php endif; ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('web.layouts.frontend', ['title' => gs('site_name')], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\hrincu_v2\resources\views/web/licenses_and_document.blade.php ENDPATH**/ ?>

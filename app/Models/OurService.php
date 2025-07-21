@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\LangDB;
+use App\Traits\LangDb;
 use App\Traits\Searchable;
 
 
 class OurService extends Model
 {
-    use HasFactory, LangDB, Searchable;
+    use HasFactory, LangDb, Searchable;
 
     protected $fillable = [
        "title",

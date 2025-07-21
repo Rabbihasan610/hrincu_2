@@ -46,23 +46,8 @@
 <?php $__env->startSection('content'); ?>
 
 
-    <div class="relative bg-cover bg-center flex h-[35vh] items-center justify-start" style="background-image: url('<?php echo e(asset('img/hero-bg.png')); ?>');" >
-        <div class="absolute inset-0 bg-black opacity-70"></div>
-        <div class="max-w-7xl container z-10 text-white px-6">
-            <h3 class="font-bold leading-tight mb-6 text-3xl">
-                Your Comprehensive Partner for HR <br>
-                Solutions, Training, Employment, and <br>
-                Contact Center Services
-            </h3>
-            <p class="text-base md:text-sm">
-                At the Human Resources Incubator, we combine expertise, <br>
-                technology, and community engagement to provide integrated solutions that enhance the<br>
-                efficiency of individuals and organizations in employment, training, operations, <br>
-                and HR management — all in line with Saudi Vision 2030.
-            </p>
-        </div>
-    </div>
 
+    <?php echo $__env->make('sections.hero_section', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
@@ -73,23 +58,23 @@
         <div class="max-w-7xl mx-auto text-white">
             <!-- Smaller heading text -->
             <h2 class="text-xl md:text-3xl font-semibold mb-6">
-                Contact Us Now
+                <?php echo app('translator')->get('Contact Us Now'); ?>
             </h2>
 
             <ul class="text-base md:text-sm space-y-2 mb-8">
-                <li>Looking for qualified candidates?</li>
-                <li>Need to train your team?</li>
-                <li>Seeking smart HR solutions?</li>
-                <li>Start now — we’ll guide you step by step</li>
+                <li><?php echo app('translator')->get('Looking for qualified candidates?'); ?></li>
+                <li><?php echo app('translator')->get('Need to train your team?'); ?>
+                <li><?php echo app('translator')->get('Seeking smart HR solutions?'); ?></li>
+                <li><?php echo app('translator')->get('Start now — well guide you step by step'); ?></li>
             </ul>
 
             <!-- Smaller buttons -->
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                 <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out text-center text-sm">
-                    Submit Request
+                    <?php echo app('translator')->get('Submit Request'); ?>
                 </a>
-                <a href="#" class="inline-block border-2 border-white hover:bg-white hover:text-[#3b0764] text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out text-center text-sm">
-                    Contact Us
+                <a href="#" class="inline-block border-2 border-white hover:bg-white hover:text-[#3b0764] text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out text-center text-sm ms-3">
+                    <?php echo app('translator')->get('Contact Us'); ?>
                 </a>
             </div>
         </div>
@@ -97,32 +82,26 @@
 
 
 
-    <div class="container mx-auto px-4 py-10 md:py-20">
-        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-20 bg-white p-6 md:p-10">
-            <div class="w-full md:w-1/2">
-                <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Training Programs</h1>
-                <p class="text-base md:text-lg text-gray-600 mb-6">At the Human Resources Incubator, we empower individuals and organizations through a professional and integrated training system. Our goal is to build competitive national capabilities and prepare talents to adapt to market needs and future challenges.</p>
-                <a href="#" class="inline-block px-6 py-2 border-1 border-blue-500 text-blue-500 rounded-md font-semibold hover:bg-blue-500 hover:text-white transition duration-300">View Details</a>
+    <?php if($community_partnerships->count() > 0): ?>
+        <div class="container mx-auto px-4 py-10 md:py-20">
+            <?php $__currentLoopData = $community_partnerships; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $community_partnership): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-20 bg-white p-6 md:p-10">
+                <div class="w-full md:w-1/2 order-1 <?php echo e($loop->odd ? 'md:order-1' : 'md:order-2'); ?>">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900"><?php echo e($community_partnership?->lang('title')); ?></h1>
+                    <p class="text-base md:text-lg text-gray-600 mb-6">
+                        <?php echo e($community_partnership?->lang('description')); ?>
+
+                    </p>
+                    <a href="#" class="inline-block px-6 py-2 border-1 border-blue-500 text-blue-500 rounded-md font-semibold hover:bg-blue-500 hover:text-white transition duration-300">View Details</a>
+                </div>
+
+                <div class="w-full md:w-1/2 h-64 md:h-96 overflow-hidden rounded-md order-2 <?php echo e($loop->odd ? 'md:order-2' : 'md:order-1'); ?>">
+                    <img src="<?php echo e(getImage(getFilePath('deafult_service') . '/' . $community_partnership->image)); ?>" alt="Training Program Image" class="w-full h-full object-cover">
+                </div>
             </div>
-            <div class="w-full md:w-1/2 h-64 md:h-96 overflow-hidden rounded-md">
-                <img src="https://images.unsplash.com/photo-1741175363663-b83a99e37685?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Training Program Image" class="w-full h-full object-cover">
-            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
-
-        <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 bg-white p-6 md:p-10 ">
-            <div class="w-full md:w-1/2">
-                <h2 class="text-sm md:text-base font-normal uppercase tracking-wide text-gray-500 mb-2">Community Partnership</h2>
-                <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Together for Empowerment and Sustainable Impact</h1>
-                <p class="text-base md:text-lg text-gray-600 mb-6">At HR Incubator, we believe that building strategic partnerships with government entities, the private sector, embassies, and non-profit organizations is key to achieving comprehensive and sustainable development in the labor market and the broader community. Our aim is to launch collaborative initiatives that enhance human capital, empower targeted groups, and promote a culture of work and social integration.</p>
-                <a href="#" class="inline-block px-6 py-2 border-1  border-blue-500 text-blue-500 rounded-md font-semibold hover:bg-blue-500 hover:text-white transition duration-300">View Details</a>
-            </div>
-            <div class="w-full md:w-1/2 h-64 md:h-96 overflow-hidden rounded-md">
-                <img src="https://images.unsplash.com/photo-1741175363663-b83a99e37685?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Community Partnership Image" class="w-full h-full object-cover">
-            </div>
-        </div>
-
-    </div>
-
+    <?php endif; ?>
 
 
     <?php if(@$sections->secs != null): ?>
@@ -132,43 +111,5 @@
     <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
-
-<?php $__env->startPush('script'); ?>
-    <script>
-        $(window).on('resize', function(event) {
-            let width = $(document).width()
-
-            if (width < 576) {
-                $(".property-type-area-slider").slick({
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    autoplay: true,
-                    autoplaySpeed: 3000,
-                    speed: 1800,
-                    dots: false,
-                    arrows: false,
-                    <?php if(session()->get('lang') == 'ar'): ?>
-                        rtl: true,
-                    <?php endif; ?>
-                });
-            }
-        });
-
-        if ($(window).width() < 576) {
-            $(".property-type-area-slider").slick({
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                speed: 1800,
-                dots: true,
-                arrows: false,
-                <?php if(session()->get('lang') == 'ar'): ?>
-                    rtl: true,
-                <?php endif; ?>
-            });
-        }
-    </script>
-<?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('web.layouts.frontend', ['title' => gs('site_name')], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\hrincu_v2\resources\views/web/home.blade.php ENDPATH**/ ?>

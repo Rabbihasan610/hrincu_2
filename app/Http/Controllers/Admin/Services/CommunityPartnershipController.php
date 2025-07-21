@@ -58,7 +58,7 @@ class CommunityPartnershipController extends Controller
         if ($request->hasFile('image')) {
             try {
                 $old = $service->image;
-                $service->image = fileUploader($request->image, getFilePath('service'), getFileSize('service'), $old);
+                $service->image = fileUploader($request->image, getFilePath('deafult_service'), getFileSize('deafult_service'), $old);
                 $service->save();
             } catch (\Exception $exp) {
                 $notify[] = ['error', 'Couldn\'t upload your image'];
