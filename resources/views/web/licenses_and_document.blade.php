@@ -8,10 +8,16 @@
     $heroBanner = getHeroBanner('licenses-and-document');
 @endphp
 
+@include('sections.official_licenses')
+@include('sections.regulatory_documents')
+@include('sections.general_form')
+
 <x-hero-banner :subtitle="$heroBanner?->subtitle" :title="$heroBanner?->title" :description="$heroBanner?->description" :image="$heroBanner?->image" />
 
 
-<section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+
+
+{{-- <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
     <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Official Licenses:</h2>
         <hr class="border-t-1 border-gray-500 mb-4">
@@ -40,9 +46,9 @@
 
         </div>
     </div>
-</section>
+</section> --}}
 
-
+{{-- 
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
     <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Regulatory Documents</h2>
@@ -86,10 +92,10 @@
 
         </div>
     </div>
-</section>
+</section> --}}
 
 
-
+{{-- 
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
     <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 items-center lg:items-start">
 
@@ -134,7 +140,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 
 <section class="py-6 px-4 sm:px-6 lg:px-4 bg-white">

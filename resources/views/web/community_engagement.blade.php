@@ -11,8 +11,11 @@
         <x-hero-banner :subtitle="$heroBanner?->subtitle" :title="$heroBanner?->title" :description="$heroBanner?->description" :image="$heroBanner?->image" />
 
 
+        @include('sections.our_objectives')
+        @include('sections.partnership_areas')
+        @include('sections.key_initiatives')
 
-        <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        {{-- <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Our Objectives</h2>
                 <hr class="border-t-1 border-gray-500 mb-4">
@@ -41,9 +44,8 @@
 
                 </div>
             </div>
-        </section>
-
-
+        </section> --}}
+{{-- 
         <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
             <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 items-center lg:items-start">
 
@@ -83,11 +85,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
 
 
-         <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+         {{-- <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
             <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 items-center lg:items-start">
 
                 <div class="w-full lg:w-1/2">
@@ -126,7 +128,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
 
         @php

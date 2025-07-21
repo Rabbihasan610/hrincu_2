@@ -4,6 +4,12 @@
 
 <x-breadcrumb title="About Us" />
 
+@include('sections.human_resources_incubator')
+@include('sections.mission_vision')
+@include('sections.values_section')
+@include('sections.whowe_serve')
+
+
 @php
 $heroBanner = getHeroBanner('about');
 
@@ -11,7 +17,7 @@ $heroBanner = getHeroBanner('about');
 
 <x-hero-banner :subtitle="$heroBanner?->subtitle" :title="$heroBanner?->title" :description="$heroBanner?->description" :image="$heroBanner?->image" />
 
-<section class="py-12 bg-gray-50">
+{{-- <section class="py-12 bg-gray-50">
     <div class="max-w-4xl mx-auto">
         <div class="flex flex-col md:flex-row gap-4">
             <div class="
@@ -59,11 +65,11 @@ $heroBanner = getHeroBanner('about');
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 
 
-<section class="py-12 bg-gray-50">
+{{-- <section class="py-12 bg-gray-50">
     <div class="container mx-auto px-4 py-8">
         <div class="text-center mb-8">
             <div class="mb-8 m-auto text-center">
@@ -149,7 +155,7 @@ $heroBanner = getHeroBanner('about');
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 
 <section>

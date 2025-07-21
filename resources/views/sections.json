@@ -11,7 +11,6 @@
             }
         }
     },
-
     "hero_banner": {
         "builder": true,
         "no_selection": false,
@@ -74,9 +73,7 @@
             "google_store_link": "text"
         }
     },
-
-
-    "hero_section" : {
+    "hero_section": {
         "builder": true,
         "no_selection": false,
         "name": "Hero Section",
@@ -92,7 +89,6 @@
             "description_ar": "text"
         }
     },
-
     "social_media": {
         "builder": true,
         "no_selection": true,
@@ -115,7 +111,6 @@
             "mobile": "text"
         }
     },
-
     "contact_us": {
         "builder": true,
         "no_selection": true,
@@ -151,7 +146,6 @@
             "modal": true
         }
     },
-
     "about_section": {
         "builder": true,
         "no_selection": false,
@@ -177,7 +171,6 @@
             "sub_title": "textarea-nic"
         }
     },
-
     "policy_pages": {
         "builder": true,
         "no_selection": true,
@@ -219,13 +212,12 @@
             "modal": true
         }
     },
-
     "feature": {
         "builder": true,
         "no_selection": false,
         "name": "Feature Section",
         "element": {
-           "images": {
+            "images": {
                 "image": {
                     "size": "85x85"
                 }
@@ -237,7 +229,6 @@
             "modal": true
         }
     },
-
     "our_service": {
         "builder": true,
         "no_selection": false,
@@ -254,7 +245,6 @@
             "description_ar": "textarea-nic"
         }
     },
-
     "productive": {
         "builder": true,
         "no_selection": false,
@@ -298,17 +288,17 @@
         "name": "Qualification for Empowerment",
         "content": {
             "description": "textarea-nic",
-            "description_ar":  "textarea-nic",
+            "description_ar": "textarea-nic",
             "images": {
                 "image": {
                     "size": "533x313"
                 }
             }
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "target_group": {
@@ -317,17 +307,17 @@
         "name": "Target groups",
         "content": {
             "title": "text",
-            "title_ar":  "text"
+            "title_ar": "text"
         },
-        "element":{
+        "element": {
             "images": {
                 "image": {
                     "size": "100x100"
                 }
             },
-            "title":"text",
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "acquired_skills": {
@@ -336,14 +326,14 @@
         "name": "Acquired skills",
         "content": {
             "title": "text",
-            "title_ar":  "text",
+            "title_ar": "text",
             "description": "text",
             "description_ar": "text"
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "cv_marketing": {
@@ -357,12 +347,12 @@
                 }
             },
             "title": "text",
-            "title_ar":  "text"
+            "title_ar": "text"
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "jobincu_rehabilitation_training": {
@@ -376,7 +366,7 @@
                 }
             },
             "title": "text",
-            "title_ar":  "text",
+            "title_ar": "text",
             "description": "text",
             "description_ar": "text"
         }
@@ -387,12 +377,12 @@
         "name": "Pre-contract Qualification",
         "content": {
             "title": "text",
-            "title_ar":  "text"
+            "title_ar": "text"
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "training_after_recruitment": {
@@ -401,12 +391,12 @@
         "name": "Training after Recruitment",
         "content": {
             "title": "text",
-            "title_ar":  "text"
+            "title_ar": "text"
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "awareness": {
@@ -415,12 +405,12 @@
         "name": "Awareness",
         "content": {
             "title": "text",
-            "title_ar":  "text"
+            "title_ar": "text"
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "events": {
@@ -429,12 +419,12 @@
         "name": "Events",
         "content": {
             "title": "text",
-            "title_ar":  "text"
+            "title_ar": "text"
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "labsincu": {
@@ -443,12 +433,12 @@
         "name": "Labsincu",
         "content": {
             "title": "text",
-            "title_ar":  "text"
+            "title_ar": "text"
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "authentication_of_documents": {
@@ -457,12 +447,12 @@
         "name": "Authentication of Documents",
         "content": {
             "title": "text",
-            "title_ar":  "text"
+            "title_ar": "text"
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "writing_cvs": {
@@ -471,14 +461,14 @@
         "name": "Writing CVs",
         "content": {
             "title": "text",
-            "title_ar":  "text",
+            "title_ar": "text",
             "description": "text",
             "description_ar": "text"
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "writing_cvs_documents": {
@@ -489,10 +479,10 @@
             "description": "text",
             "description_ar": "text"
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "privacy_policy": {
@@ -506,7 +496,7 @@
                 }
             },
             "title": "text",
-            "title_ar":  "text",
+            "title_ar": "text",
             "description": "textarea-nic",
             "description_ar": "textarea-nic"
         }
@@ -517,38 +507,211 @@
         "name": "Interpretation and definition",
         "content": {
             "name": "text",
-            "name_ar":  "text",
+            "name_ar": "text",
             "description": "text",
             "description_ar": "text",
             "title": "text",
-            "title_ar":  "text",
+            "title_ar": "text",
             "short_description": "text",
             "short_description_ar": "text"
         },
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "context_of_personal_data": {
         "builder": true,
         "no_selection": false,
         "name": "Context of Personal Data",
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
         }
     },
     "context": {
         "builder": true,
         "no_selection": false,
         "name": "Context",
-        "element":{
-            "title":"text",
+        "element": {
+            "title": "text",
             "title_ar": "text",
-            "modal":true
+            "modal": true
+        }
+    },
+    "human_resources_incubator": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Human Resources Incubator",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "700x400"
+                }
+            },
+            "title": "text",
+            "title_ar": "text",
+            "description": "text",
+            "description_ar": "text"
+        }
+    },
+    "mission_vision": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Our Mission Vision Section",
+        "element": {
+            "images": {
+                "image": {
+                    "size": "120x120"
+                }
+            },
+            "heading": "text",
+            "heading_ar": "text",
+            "title": "text",
+            "title_ar": "text",
+            "modal": true
+        }
+    },
+    "values_section": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Values Section",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "105x120"
+                }
+            },
+            "title": "text",
+            "title_ar": "text"
+        },
+        "element": {
+            "title": "text",
+            "title_ar": "text",
+            "subtitle": "text",
+            "subtitle_ar": "text",
+            "modal": true
+        }
+    },
+    "whowe_serve": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Who We Serve Section",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "700x400"
+                }
+            },
+            "title": "text",
+            "title_ar": "text",
+            "sub_title": "text",
+            "sub_title_ar": "text",
+            "bottom": "text",
+            "bottom_ar": "text"
+        },
+        "element": {
+            "title": "text",
+            "title_ar": "text",
+            "modal": true
+        }
+    },
+    "our_objectives": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Our Objectives Section",
+        "element": {
+            "title": "text",
+            "title_ar": "text",
+            "modal": true
+        }
+    },
+    "partnership_areas": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Partnership Areas Section",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "700x548"
+                }
+            },
+            "title": "text",
+            "title_ar": "text"
+        },
+        "element": {
+            "title": "text",
+            "title_ar": "text",
+            "subtitle": "text",
+            "subtitle_ar": "text",
+            "modal": true
+        }
+    },
+    "key_initiatives": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Key Initiatives Section",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "700x548"
+                }
+            },
+            "title": "text",
+            "title_ar": "text"
+        },
+        "element": {
+            "title": "text",
+            "title_ar": "text",
+            "subtitle": "text",
+            "subtitle_ar": "text",
+            "modal": true
+        }
+    },
+    "general_form": {
+        "builder": true,
+        "no_selection": false,
+        "name": "General Form Section",
+        "content": {
+            "images": {
+                "image": {
+                    "size": "700x548"
+                }
+            },
+            "title": "text",
+            "title_ar": "text"
+        },
+        "element": {
+            "title": "text",
+            "title_ar": "text",
+            "modal": true
+        }
+    },
+    "official_licenses": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Official Licenses Section",
+        "element": {
+            "title": "text",
+            "title_ar": "text",
+            "modal": true
+        }
+    },
+    "regulatory_documents": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Regulatory Documents",
+        "element": {
+            "images": {
+                "image": {
+                    "size": "268x168"
+                }
+            },
+            "title": "text",
+            "title_ar": "text",
+            "modal": true
         }
     }
 }
