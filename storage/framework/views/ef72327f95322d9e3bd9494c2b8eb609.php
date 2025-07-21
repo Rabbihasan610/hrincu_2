@@ -21,27 +21,32 @@
 <?php unset($__componentOriginale19f62b34dfe0bfdf95075badcb45bc2); ?>
 <?php endif; ?>
 
+<?php
+$heroBanner = getHeroBanner('service');
 
+?>
 
-<section>
-    <div class="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-        <div class="md:w-1/2">
-            <p class="text-lg font-semibold text-gray-600 mb-2">Let's check</p>
-            <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">Our service</h2>
-            <p class="text-base sm:text-lg text-gray-700 leading-relaxed">
-            At <strong class="text-blue-600">Human Resources Incubator</strong>, we provide a comprehensive ecosystem of services that support individuals and organizations in their journey toward employment, training, workforce management, talent optimization, and institutional excellence. We cover all aspects needed to help our clients build effective, flexible, and sustainable work environments.
-            </p>
-        </div>
+<?php if (isset($component)) { $__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.hero-banner','data' => ['subtitle' => $heroBanner?->subtitle,'title' => $heroBanner?->title,'description' => $heroBanner?->description,'image' => $heroBanner?->image]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('hero-banner'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['subtitle' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->subtitle),'title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->title),'description' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->description),'image' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($heroBanner?->image)]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5)): ?>
+<?php $attributes = $__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5; ?>
+<?php unset($__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5)): ?>
+<?php $component = $__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5; ?>
+<?php unset($__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5); ?>
+<?php endif; ?>
 
-        <div class="md:w-1/2 flex justify-center md:justify-end">
-            <div class="rounded-lg overflow-hidden  w-full">
-                <img src="https://placehold.co/700x400" alt="Modern buildings cityscape" class="w-full h-auto">
-            </div>
-        </div>
-        </div>
-    </div>
-</section>
 
 <?php echo $__env->make('sections.ourservice_request', ['is_title' => true], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 

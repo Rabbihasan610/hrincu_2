@@ -10,7 +10,12 @@
 @include('sections.whowe_serve')
 
 
+@php
+$heroBanner = getHeroBanner('about');
 
+@endphp
+
+<x-hero-banner :subtitle="$heroBanner?->subtitle" :title="$heroBanner?->title" :description="$heroBanner?->description" :image="$heroBanner?->image" />
 
 {{-- <section class="py-12 bg-gray-50">
     <div class="max-w-4xl mx-auto">
@@ -157,74 +162,21 @@
     <div class="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-8">Targeted Sectors</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-8">@lang('Targeted Sectors')</h2>
+
+            @php
+                $sectors = \App\Models\Sectors::where('status', 1)->get();
+            @endphp
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Commercial and service sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Healthcare sector</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Industrial and mining sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Transport and logistics sector</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Agricultural and food sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3 rounded-circle" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Higher education sector</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Hospitality, tourism, and hotel sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Communication and contact center sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Restaurant and cafe sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Environmental and support service sectors</span>
-            </div>
-            <div class="flex items-center">
-                <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm text-gray-700 font-bold">Construction and building sectors</span>
-            </div>
+                @foreach ($sectors as $sector)
+                    <div class="flex items-center">
+                        <svg class="h-4 w-4 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-sm text-gray-700 font-bold">{{ $sector?->lang('title') }}</span>
+                    </div>
+                @endforeach
             </div>
         </div>
 

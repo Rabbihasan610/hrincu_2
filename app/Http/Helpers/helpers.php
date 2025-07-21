@@ -522,3 +522,38 @@ if (!function_exists('safe_count')) {
 }
 
 
+if (!function_exists('getHeroBanner')) {
+    function getHeroBanner(string $type, string $section = 'hero_banner'): object 
+    {
+        $heroBanners = getContent($section.'.element', false, null, true);
+
+        $heroBanner = (object) [
+            "subtitle" => "",
+            "title" => "",
+            "description" => "",
+            "image" => ""
+        ];
+
+        $appLocale = app()->getLocale();
+
+        foreach ($heroBanners as $banner) {
+            if (isset($banner->data_values->page_slug) && $banner->data_values->page_slug == $type) {
+                if(isset($banner->data_values->subtitle)){
+                    $heroBanner->subtitle = $appLocale == 'en' ? $banner->data_values->subtitle : $banner->data_values->subtitle_ar;
+                }
+                if(isset($banner->data_values->title)){
+                    $heroBanner->title = $appLocale == 'en' ? $banner->data_values->title : $banner->data_values->title_ar;
+                }
+                if(isset($banner->data_values->description)){
+                    $heroBanner->description = $appLocale == 'en' ? $banner->data_values->description : $banner->data_values->description_ar;
+                }
+                if(isset($banner->data_values->image)){
+                    $heroBanner->image = getImage('assets/images/frontend/' . $section . '/' . $banner->data_values->image);
+                }
+                break;
+            }
+        }
+
+        return $heroBanner;
+    }
+}

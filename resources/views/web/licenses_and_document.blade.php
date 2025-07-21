@@ -4,30 +4,16 @@
 
 <x-breadcrumb title="Licenses & Documents" />
 
-<section>
-    <div class="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-        <div class="md:w-1/2">
-            <p class="text-lg font-semibold text-gray-600 mb-2">Licenses & Document</p>
-            <h2 class="text-4xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">Compliance and Governance to Ensure Service Quality and Partnership Credibility</h2>
-            <p class="text-base sm:text-lg text-gray-700 leading-relaxed">
-
-                At HR Incubator, we are committed to the highest standards of transparency and regulatory compliance. We operate under official licenses and accreditations to deliver reliable and secure services for individuals, businesses, and institutional partners.
-            </p>
-        </div>
-
-        <div class="md:w-1/2 flex justify-center md:justify-end">
-            <div class="rounded-lg overflow-hidden  w-full">
-                <img src="https://placehold.co/700x400" alt="Modern buildings cityscape" class="w-full h-auto">
-            </div>
-        </div>
-        </div>
-    </div>
-</section>
+@php
+    $heroBanner = getHeroBanner('licenses-and-document');
+@endphp
 
 @include('sections.official_licenses')
 @include('sections.regulatory_documents')
 @include('sections.general_form')
+
+<x-hero-banner :subtitle="$heroBanner?->subtitle" :title="$heroBanner?->title" :description="$heroBanner?->description" :image="$heroBanner?->image" />
+
 
 
 
@@ -165,21 +151,16 @@
   </div>
 </section>
 
-<section class="py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto bg-purple-900 rounded-xl p-8 md:p-12 text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Are You Part of One of These Sectors?</h2>
-        <p class="text-base sm:text-lg text-white text-opacity-80 mb-8">We are ready to deliver tailored solutions that fit your needs.</p>
-        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 transition duration-300 ease-in-out">
-                @lang('Submit Request')
-            </button>
-            <button class="bg-transparent border-1 border-white text-white font-semibold py-3 px-8 transition duration-300 ease-in-out hover:bg-white hover:text-purple-900">
-                @lang('Contact Us')
-            </button>
-        </div>
-    </div>
-</section>
 
+@php
+$callToAction = getHeroBanner('licenses-documents', 'call_to_action');
+@endphp
+
+<x-call-to-action 
+    :title="$callToAction?->title" 
+    :description="$callToAction?->description" 
+    contact_button="{{ route('contact') }}"
+/>
 
 
 @if (@$sections->secs != null)

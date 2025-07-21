@@ -61,7 +61,7 @@
             <ul>
                 <li class="<?php echo e(menuActive('admin.sectors*')); ?>">
                     <a href="<?php echo e(route('admin.sectors.index')); ?>"><i
-                            class="bi bi-record-circle"></i><?php echo app('translator')->get('Sectors'); ?></a>
+                            class="bi bi-record-circle"></i><?php echo app('translator')->get('Targeted Sectors'); ?></a>
                 </li>
                 <li class="<?php echo e(menuActive('admin.trainingpath*')); ?>">
                     <a href="<?php echo e(route('admin.trainingpath.index')); ?>"><i

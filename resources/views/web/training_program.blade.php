@@ -3,7 +3,6 @@
 @section("content")
         <x-breadcrumb title="Training Program" />
 
-
         <section class="bg-[#FFFFFF] px-4 py-16 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-7xl">
                 <h3 class="mb-3 text-3xl text-gray-900">Training Program Features</h3>
@@ -292,20 +291,15 @@
         </section>
 
 
-        <section class="py-16 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto bg-purple-900 rounded-xl p-8 md:p-12 text-center">
-                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Are You Part of One of These Sectors?</h2>
-                <p class="text-base sm:text-lg text-white text-opacity-80 mb-8">We are ready to deliver tailored solutions that fit your needs.</p>
-                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 transition duration-300 ease-in-out">
-                        @lang('Submit Request')
-                    </button>
-                    <button class="bg-transparent border-1 border-white text-white font-semibold py-3 px-8 transition duration-300 ease-in-out hover:bg-white hover:text-purple-900">
-                        @lang('Contact Us')
-                    </button>
-                </div>
-            </div>
-        </section>
+        @php
+        $callToAction = getHeroBanner('training-program', 'call_to_action');
+        @endphp
+
+        <x-call-to-action 
+            :title="$callToAction?->title" 
+            :description="$callToAction?->description" 
+            link_button="{{ route('training.and.qualification.request') }}"
+        />
 
         @if (@$sections->secs != null)
             @foreach (json_decode($sections->secs) as $sec)
