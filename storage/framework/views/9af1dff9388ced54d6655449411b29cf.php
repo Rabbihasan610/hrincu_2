@@ -30,7 +30,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" placeholder="Organization Name" value="<?php echo e(old('organization_name')); ?>">
+unset($__errorArgs, $__bag); ?>" placeholder="<?php echo e(__('Organization Name')); ?>" value="<?php echo e(old('organization_name')); ?>">
                         <?php $__errorArgs = ['organization_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -75,7 +75,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($value); ?>">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(__($value)); ?>">
                                     <?php $__errorArgs = ["form_extra_fields.{$index}"];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -95,7 +95,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" rows="4"><?php echo e($value); ?></textarea>
+unset($__errorArgs, $__bag); ?>" rows="4"><?php echo e(__($value)); ?></textarea>
                                     <?php $__errorArgs = ["form_extra_fields.{$index}"];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -118,7 +118,7 @@ endif;
 unset($__errorArgs, $__bag); ?>">
                                         <option value="">Select</option>
                                         <?php $__currentLoopData = $field['options']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $option): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <option value="<?php echo e($option); ?>" <?php if($value == $option): echo 'selected'; endif; ?>><?php echo e($option); ?></option>
+                                            <option value="<?php echo e($option); ?>" <?php if($value == $option): echo 'selected'; endif; ?>><?php echo e(__($option)); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                     <?php $__errorArgs = ["form_extra_fields.{$index}"];
@@ -151,7 +151,7 @@ unset($__errorArgs, $__bag); ?>"
                                                 <?php echo e($type == 'checkbox' ? (is_array($value) && in_array($option, $value) ? 'checked' : '') : ($value == $option ? 'checked' : '')); ?>
 
                                             >
-                                            <label class="form-check-label" for="<?php echo e($name); ?>_<?php echo e($loop->index); ?>"><?php echo e($option); ?></label>
+                                            <label class="form-check-label" for="<?php echo e($name); ?>_<?php echo e($loop->index); ?>"><?php echo e(__($option)); ?></label>
                                         </div>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     <?php $__errorArgs = ["form_extra_fields.{$index}"];
@@ -176,7 +176,7 @@ unset($__errorArgs, $__bag); ?>
                     <!-- Notes -->
                     <div class="mb-4">
                         <label class="form-label fw-bold"><?php echo app('translator')->get('Additional notes'); ?></label>
-                        <textarea name="additional_notes" class="form-control" rows="4" placeholder="Type your notes"><?php echo e(old('additional_notes')); ?></textarea>
+                        <textarea name="additional_notes" class="form-control" rows="4" placeholder="<?php echo app('translator')->get('Type your notes'); ?>"><?php echo e(old('additional_notes')); ?></textarea>
                     </div>
 
                     <!-- Submit -->

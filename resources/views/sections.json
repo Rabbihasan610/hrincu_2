@@ -30,9 +30,7 @@
             "page_slug": "text",
             "modal": false
         }
-
     },
-
     "call_to_action": {
         "builder": true,
         "no_selection": false,
@@ -774,6 +772,22 @@
                     "size": "268x168"
                 }
             },
+            "title": "text",
+            "title_ar": "text",
+            "modal": true
+        }
+    },
+    "partnerships_accreditations": {
+        "builder": true,
+        "no_selection": false,
+        "name": "Partnerships and Accreditations",
+        "content": {
+            "title": "text",
+            "title_ar": "text",
+            "subtitle": "text",
+            "subtitle_ar": "text"
+        },
+        "element": {
             "title": "text",
             "title_ar": "text",
             "modal": true

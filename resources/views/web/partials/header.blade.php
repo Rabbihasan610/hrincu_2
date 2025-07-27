@@ -37,7 +37,7 @@
                 <li><a href="{{ route('user.logout') }}" class="block px-4 py-2 hover:bg-gray-100">@lang('Logout')</a></li>
             @else
                 <li><a href="{{ route('user.login') }}" class="block px-4 py-2 hover:bg-gray-100">@lang('Sign In')</a></li>
-                <li><a href="{{ route('user.register') }}" class="block px-4 py-2 hover:bg-gray-100">@lang('Sing Up')</a></li>
+                <li><a href="{{ route('user.register') }}" class="block px-4 py-2 hover:bg-gray-100">@lang('Sign Up')</a></li>
             @endif
         </ul>
 
