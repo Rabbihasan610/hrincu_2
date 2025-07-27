@@ -3,8 +3,6 @@
 @section('content')
     <x-breadcrumb title="About Us" />
 
-
-
     @php
         $heroBanner = getHeroBanner('about');
 
@@ -54,7 +52,7 @@
             position: absolute;
             top: 80%;
             bottom: 0;
-            left: -145px;
+            left: 100px;
             width: 130px;
             height: 2px;
             background-color: #CCCCCC;

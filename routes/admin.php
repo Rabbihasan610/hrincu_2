@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\CandidateCategoryController;
 use App\Http\Controllers\Admin\OurServiceRequestController;
 use App\Http\Controllers\Admin\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
+use App\Http\Controllers\Admin\Services\TrainingProgramCategoryController;
 
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::post('/login', [LoginController::class, 'Login']);
@@ -344,5 +345,16 @@ Route::middleware('admin')->group(function () {
         Route::get('/show/{id}', [OurServiceRequestController::class, 'show'])->name('our-services-request.show');
         Route::put('/update/{id}', [OurServiceRequestController::class, 'update'])->name('our-services-request.update');
         Route::delete('/destroy/{id}', [OurServiceRequestController::class, 'destroy'])->name('our-services-request.destroy');
+    });
+
+    Route::prefix('training-program-categories')->group(function() {
+        Route::get('/', [TrainingProgramCategoryController::class, 'index'])->name('trainingprogramcategory.index');
+        Route::get('/create', [TrainingProgramCategoryController::class, 'create'])->name('trainingprogramcategory.create');
+        Route::post('/store', [TrainingProgramCategoryController::class, 'store'])->name('trainingprogramcategory.store');
+        Route::get('/edit/{id}', [TrainingProgramCategoryController::class, 'edit'])->name('trainingprogramcategory.edit');
+        Route::post('/update/{id}', [TrainingProgramCategoryController::class, 'update'])->name('trainingprogramcategory.update');
+        Route::delete('/destroy/{id}', [TrainingProgramCategoryController::class, 'destroy'])->name('trainingprogramcategory.delete');
+        Route::post('/status/{id}', [TrainingProgramCategoryController::class, 'status'])->name('trainingprogramcategory.status');
+        Route::get('/duplicate/{id}', [TrainingProgramCategoryController::class, 'duplicate'])->name('trainingprogramcategory.duplicate');
     });
 });

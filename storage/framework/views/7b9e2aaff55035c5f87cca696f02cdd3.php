@@ -20,8 +20,6 @@
 <?php unset($__componentOriginale19f62b34dfe0bfdf95075badcb45bc2); ?>
 <?php endif; ?>
 
-
-
     <?php
         $heroBanner = getHeroBanner('about');
 
@@ -90,7 +88,7 @@
             position: absolute;
             top: 80%;
             bottom: 0;
-            left: -145px;
+            left: 100px;
             width: 130px;
             height: 2px;
             background-color: #CCCCCC;

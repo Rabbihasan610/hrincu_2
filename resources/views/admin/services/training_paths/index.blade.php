@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['title' => 'Training Path'])
+@extends('admin.layouts.app', ['title' => 'Training Program'])
 @section('panel')
     <div class="row">
         <div class="col-lg-12">
@@ -11,7 +11,7 @@
                                     <th>@lang('Sl')</th>
                                     <th>@lang('Image')</th>
                                     <th>@lang('Title')</th>
-                                    {{-- <th>@lang('Description')</th> --}}
+                                    <th>@lang('Category')</th>
                                     <th>@lang('Status')</th>
                                     <th>@lang('Action')</th>
                                 </tr>
@@ -22,9 +22,9 @@
                                         <td> {{ $loop->index + 1 }} </td>
                                         <td> <img src="{{ getImage(getFilePath('trainingpath') . '/' . $service->image) }}" alt="image" class="rounded" style="width: 50px"> </td>
                                         <td> {{ $service->lang('title') }} </td>
-                                        {{-- <td> {{ Str::limit($service->lang('description'), 50) }} </td> --}}
+                                        <td> {{ $service->trainingProgramCategory?->lang('title') }} </td>
                                         <td>
-                                            <x-status :data="$service" :url="route('admin.trainingpath.status', $service->id)" />
+                                            <x-status :data="$service" :url="route('admin.trainingprogram.status', $service->id)" />
                                         </td>
                                         <td>
                                             <div class="btn-group">
@@ -34,7 +34,7 @@
                                                 <ul class="dropdown-menu dropdown-menu-end">
                                                     <li>
                                                         <a href="javascript:void(0)" class="isShow"
-                                                            data-question="Training Path Information"
+                                                            data-question="Training Program Information"
                                                             data-image="{{ getImage(getFilePath('service') . '/' . $service->image) }}"
                                                             data-title="{{ $service->lang('title') }}"
                                                             data-status="{{ $service->status ? 'Active' : 'Inactive' }}">
@@ -42,19 +42,19 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('admin.trainingpath.edit', $service->id) }}">
+                                                        <a href="{{ route('admin.trainingprogram.edit', $service->id) }}">
                                                             <i class="bi bi-pencil"></i>@lang('Edit')
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('admin.trainingpath.duplicate', $service->id) }}">
+                                                        <a href="{{ route('admin.trainingprogram.duplicate', $service->id) }}">
                                                             <i class="bi bi-clipboard-plus"></i>@lang('Duplicate')
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="javascript:void(0)" class="confirmationBtn"
-                                                            data-action="{{ route('admin.trainingpath.delete', $service->id) }}"
-                                                            data-question="@lang('Are you sure to delete this training path?')">
+                                                            data-action="{{ route('admin.trainingprogram.delete', $service->id) }}"
+                                                            data-question="@lang('Are you sure to delete this training program?')">
                                                             <i class="bi bi-trash"></i>@lang('Delete')
                                                         </a>
                                                     </li>
@@ -63,7 +63,7 @@
 
 
                                         </td>
-                                    </tr>
+                                    </tr>   
                                 @empty
                                     <tr>
                                         <td class="text-center text-muted" colspan="100%">{{ __($emptyMessage) }}</td>
@@ -91,6 +91,6 @@
 @push('breadcrumb-plugins')
     <div class="flex-wrap gap-3 d-flex">
         <x-search-form placeholder="Search" />
-        <a href="{{ route('admin.trainingpath.create') }}" class="btn btn-primary"> <i class="fa-solid fa-plus"></i>@lang('Add New')</a>
+        <a href="{{ route('admin.trainingprogram.create') }}" class="btn btn-primary"> <i class="fa-solid fa-plus"></i>@lang('Add New')</a>
     </div>
 @endpush

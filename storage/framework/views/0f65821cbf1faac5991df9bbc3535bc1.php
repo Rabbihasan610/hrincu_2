@@ -50,93 +50,17 @@
     <section class="bg-gray-50 px-4 py-16 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-7xl">
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <?php $__currentLoopData = $sectors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sector): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="border border-gray-200 flex flex-col overflow-hidden rounded-lg">
                     <div class="flex w-full items-center justify-center p-3 text-gray-500">
-                        <img alt="" class="h-48 w-full rounded" src="https://placehold.co/500x350">
+                        <img alt="" class="h-48 w-full rounded" src="<?php echo e(getImage(getFilePath('sector'). '/' . $sector?->image)); ?>">
                     </div>
                     <div class="flex-grow p-6">
-                        <h3 class="mb-2 text-xl font-semibold text-gray-900">Commercial and Service Sector</h3>
-                        <p class="text-sm text-gray-600">Supporting SMEs and large enterprises in recruitment, operations,
-                            workforce development, and enhancing customer service quality.</p>
+                        <h3 class="mb-2 text-xl font-semibold text-gray-900"><?php echo e($sector?->lang('title')); ?></h3>
+                        <p class="text-sm text-gray-600"><?php echo e($sector?->lang('description')); ?></p>
                     </div>
                 </div>
-
-                <div class="border border-gray-200 flex flex-col overflow-hidden rounded-lg">
-                    <div class="flex w-full items-center justify-center p-3 text-gray-500">
-                        <img alt="" class="h-48 w-full rounded" src="https://placehold.co/500x350">
-                    </div>
-                    <div class="flex-grow p-6">
-                        <h3 class="mb-2 text-xl font-semibold text-gray-900">Commercial and Service Sector</h3>
-                        <p class="text-sm text-gray-600">Supporting SMEs and large enterprises in recruitment, operations,
-                            workforce development, and enhancing customer service quality.</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 flex flex-col overflow-hidden rounded-lg">
-                    <div class="flex w-full items-center justify-center p-3 text-gray-500">
-                        <img alt="" class="h-48 w-full rounded" src="https://placehold.co/500x350">
-                    </div>
-                    <div class="flex-grow p-6">
-                        <h3 class="mb-2 text-xl font-semibold text-gray-900">Commercial and Service Sector</h3>
-                        <p class="text-sm text-gray-600">Supporting SMEs and large enterprises in recruitment, operations,
-                            workforce development, and enhancing customer service quality.</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 flex flex-col overflow-hidden rounded-lg">
-                    <div class="flex w-full items-center justify-center p-3 text-gray-500">
-                        <img alt="" class="h-48 w-full rounded" src="https://placehold.co/500x350">
-                    </div>
-                    <div class="flex-grow p-6">
-                        <h3 class="mb-2 text-xl font-semibold text-gray-900">Commercial and Service Sector</h3>
-                        <p class="text-sm text-gray-600">Supporting SMEs and large enterprises in recruitment, operations,
-                            workforce development, and enhancing customer service quality.</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 flex flex-col overflow-hidden rounded-lg">
-                    <div class="flex w-full items-center justify-center p-3 text-gray-500">
-                        <img alt="" class="h-48 w-full rounded" src="https://placehold.co/500x350">
-                    </div>
-                    <div class="flex-grow p-6">
-                        <h3 class="mb-2 text-xl font-semibold text-gray-900">Commercial and Service Sector</h3>
-                        <p class="text-sm text-gray-600">Supporting SMEs and large enterprises in recruitment, operations,
-                            workforce development, and enhancing customer service quality.</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 flex flex-col overflow-hidden rounded-lg">
-                    <div class="flex w-full items-center justify-center p-3 text-gray-500">
-                        <img alt="" class="h-48 w-full rounded" src="https://placehold.co/500x350">
-                    </div>
-                    <div class="flex-grow p-6">
-                        <h3 class="mb-2 text-xl font-semibold text-gray-900">Commercial and Service Sector</h3>
-                        <p class="text-sm text-gray-600">Supporting SMEs and large enterprises in recruitment, operations,
-                            workforce development, and enhancing customer service quality.</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 flex flex-col overflow-hidden rounded-lg">
-                    <div class="flex w-full items-center justify-center p-3 text-gray-500">
-                        <img alt="" class="h-48 w-full rounded" src="https://placehold.co/500x350">
-                    </div>
-                    <div class="flex-grow p-6">
-                        <h3 class="mb-2 text-xl font-semibold text-gray-900">Commercial and Service Sector</h3>
-                        <p class="text-sm text-gray-600">Supporting SMEs and large enterprises in recruitment, operations,
-                            workforce development, and enhancing customer service quality.</p>
-                    </div>
-                </div>
-
-                <div class="border border-gray-200 flex flex-col overflow-hidden rounded-lg">
-                    <div class="flex w-full items-center justify-center p-3 text-gray-500">
-                        <img alt="" class="h-48 w-full rounded" src="https://placehold.co/500x350">
-                    </div>
-                    <div class="flex-grow p-6">
-                        <h3 class="mb-2 text-xl font-semibold text-gray-900">Commercial and Service Sector</h3>
-                        <p class="text-sm text-gray-600">Supporting SMEs and large enterprises in recruitment, operations,
-                            workforce development, and enhancing customer service quality.</p>
-                    </div>
-                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </section>

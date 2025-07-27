@@ -33,8 +33,6 @@
 </section>
 
 <style>
-
-      
     .mission_card {
         border-radius: 12px;
     }

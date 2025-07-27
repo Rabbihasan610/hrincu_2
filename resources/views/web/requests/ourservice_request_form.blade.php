@@ -24,7 +24,7 @@
 
                     <div class="mb-4">
                         <label class="form-label fw-bold">@lang('Applicant Information')</label>
-                        <input type="text" name="organization_name" class="form-control @error('organization_name') is-invalid @enderror" placeholder="Organization Name" value="{{ old('organization_name') }}">
+                        <input type="text" name="organization_name" class="form-control @error('organization_name') is-invalid @enderror" placeholder="{{ __('Organization Name') }}" value="{{ old('organization_name') }}">
                         @error('organization_name')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -55,13 +55,13 @@
                                 <label class="form-label fw-bold">{{ __($label) }}</label>
 
                                 @if(in_array($type, ['text', 'date', 'number']))
-                                    <input type="{{ $type }}" name="{{ $name }}" class="form-control @error("form_extra_fields.{$index}") is-invalid @enderror" value="{{ $value }}">
+                                    <input type="{{ $type }}" name="{{ $name }}" class="form-control @error("form_extra_fields.{$index}") is-invalid @enderror" value="{{ __($value) }}">
                                     @error("form_extra_fields.{$index}")
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
 
                                 @elseif($type === 'textarea')
-                                    <textarea name="{{ $name }}" class="form-control @error("form_extra_fields.{$index}") is-invalid @enderror" rows="4">{{ $value }}</textarea>
+                                    <textarea name="{{ $name }}" class="form-control @error("form_extra_fields.{$index}") is-invalid @enderror" rows="4">{{ __($value) }}</textarea>
                                     @error("form_extra_fields.{$index}")
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -70,7 +70,7 @@
                                     <select name="{{ $name }}" class="form-select @error("form_extra_fields.{$index}") is-invalid @enderror">
                                         <option value="">Select</option>
                                         @foreach($field['options'] as $option)
-                                            <option value="{{ $option }}" @selected($value == $option)>{{ $option }}</option>
+                                            <option value="{{ $option }}" @selected($value == $option)>{{ __($option) }}</option>
                                         @endforeach
                                     </select>
                                     @error("form_extra_fields.{$index}")
@@ -88,7 +88,7 @@
                                                 value="{{ $option }}"
                                                 {{ $type == 'checkbox' ? (is_array($value) && in_array($option, $value) ? 'checked' : '') : ($value == $option ? 'checked' : '') }}
                                             >
-                                            <label class="form-check-label" for="{{ $name }}_{{ $loop->index }}">{{ $option }}</label>
+                                            <label class="form-check-label" for="{{ $name }}_{{ $loop->index }}">{{ __($option) }}</label>
                                         </div>
                                     @endforeach
                                     @error("form_extra_fields.{$index}")
@@ -106,7 +106,7 @@
                     <!-- Notes -->
                     <div class="mb-4">
                         <label class="form-label fw-bold">@lang('Additional notes')</label>
-                        <textarea name="additional_notes" class="form-control" rows="4" placeholder="Type your notes">{{ old('additional_notes') }}</textarea>
+                        <textarea name="additional_notes" class="form-control" rows="4" placeholder="@lang('Type your notes')">{{ old('additional_notes') }}</textarea>
                     </div>
 
                     <!-- Submit -->

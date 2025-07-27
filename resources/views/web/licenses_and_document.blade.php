@@ -19,7 +19,7 @@
 <section class="py-6 px-4 sm:px-6 lg:px-4 bg-white">
   <div class="max-w-4xl mx-auto p-2 sm:p-2 border border-green-200 bg-green-50 text-green-800">
     <p class="text-sm sm:text-base leading-relaxed">
-      <span class="font-bold">Note:</span> All documents and templates are available in digital format and support electronic signature to streamline processes and ensure efficient execution
+      <span class="font-bold">@lang('Note'):</span> @lang('All documents and templates are available in digital format and support electronic signature to streamline processes and ensure efficient execution')
     </p>
   </div>
 </section>

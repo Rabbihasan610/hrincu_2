@@ -37,7 +37,7 @@
                 <li><a href="{{ route('user.logout') }}" class="block px-4 py-2 hover:bg-gray-100">@lang('Logout')</a></li>
             @else
                 <li><a href="{{ route('user.login') }}" class="block px-4 py-2 hover:bg-gray-100">@lang('Sign In')</a></li>
-                <li><a href="{{ route('user.register') }}" class="block px-4 py-2 hover:bg-gray-100">@lang('Sing Up')</a></li>
+                <li><a href="{{ route('user.register') }}" class="block px-4 py-2 hover:bg-gray-100">@lang('Sign Up')</a></li>
             @endif
         </ul>
 
@@ -71,7 +71,7 @@
         <a href="{{ route('training.program') }}" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Training Programs')</a>
         <a href="{{ route('community.engagement') }}" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Community Engagement')</a>
         <a href="{{ route('licenses.document') }}" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Documents & Certificate')</a>
-        <a href="#" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Contact Us')</a>
+        <a href="{{ route('contact') }}" class="text-gray-700 hover:text-purple-700 text-sm">@lang('Contact Us')</a>
         <a href="{{ route('submit.resume') }}" class="ml-2 px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800 transition">@lang('Submit')</a>
       </div>
     </div>
@@ -86,7 +86,7 @@
       <a href="{{ route('training.program') }}" class="block text-gray-700 hover:text-purple-700 text-sm">@lang('Training Programs')</a>
       <a href="{{ route('community.engagement') }}" class="block text-gray-700 hover:text-purple-700 text-sm">@lang('Community Engagement')</a>
       <a href="{{ route('licenses.document') }}" class="block text-gray-700 hover:text-purple-700 text-sm">@lang('Documents & Certificate')</a>
-      <a href="#" class="block text-gray-700 hover:text-purple-700 text-sm">@lang('Contact Us')</a>
+      <a href="{{ route('contact') }}" class="block text-gray-700 hover:text-purple-700 text-sm">@lang('Contact Us')</a>
       <a href="{{ route('submit.resume') }}" class="block mt-2 px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800">@lang('Submit')</a>
     </div>
   </div>

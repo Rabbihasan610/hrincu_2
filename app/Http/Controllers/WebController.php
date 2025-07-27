@@ -17,6 +17,7 @@ use App\Constants\Status;
 use App\Models\Mail\User;
 use App\Models\OurService;
 use App\Models\Subscriber;
+use App\Models\JobCategory;
 use App\Models\TrainigApply;
 use App\Models\TrainingPath;
 use Illuminate\Http\Request;
@@ -669,22 +670,30 @@ class WebController extends Controller
 
     public function targetedSector()
     {
-        return view('web.targeted_sector');
+        $sections = Page::where('slug', 'targeted-sector')->first();
+
+        $sectors = Sectors::where('status', 1)->get();
+
+        return view('web.targeted_sector', compact('sections', 'sectors'));
     }
 
     public function trainingProgram()
     {
-        return view('web.training_program');
+        $sections = Page::where('slug', 'training-program')->first();
+        $trainings = TrainingPath::active()->get();
+        return view('web.training_program', compact('sections', 'trainings'));
     }
 
     public function specialTraining()
     {
-        return view('web.special_training');
+        $sections = Page::where('slug', 'special-training')->first();
+        return view('web.special_training', compact('sections'));
     }
 
     public function communityEngagement()
     {
-        return view('web.community_engagement');
+        $sections = Page::where('slug', 'community-engagement')->first();
+        return view('web.community_engagement', compact('sections'));
     }
 
     public function communityPartnershipRequest()
@@ -770,6 +779,12 @@ class WebController extends Controller
 
         return redirect()->back()->withNotify($notify);
 
+    }
+
+    public function jobListing(){
+        $sections = Page::where('slug', 'job-listing')->first();
+        $job_categories = JobCategory::get();
+        return view('web.job_listing', compact('sections', 'job_categories'));
     }
 }
 
