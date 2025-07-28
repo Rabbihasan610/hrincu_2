@@ -24,11 +24,6 @@
 <?php
     $heroBanner = getHeroBanner('licenses-and-document');
 ?>
-
-<?php echo $__env->make('sections.official_licenses', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php echo $__env->make('sections.regulatory_documents', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php echo $__env->make('sections.general_form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
 <?php if (isset($component)) { $__componentOriginalcc976e4d6da565a9a99c34acb03c2bd5 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalcc976e4d6da565a9a99c34acb03c2bd5 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.hero-banner','data' => ['subtitle' => $heroBanner?->subtitle,'title' => $heroBanner?->title,'description' => $heroBanner?->description,'image' => $heroBanner?->image]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -51,20 +46,16 @@
 <?php endif; ?>
 
 
-
-
-
-
-
-
-
+<?php echo $__env->make('sections.official_licenses', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('sections.regulatory_documents', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('sections.general_form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
 <section class="py-6 px-4 sm:px-6 lg:px-4 bg-white">
   <div class="max-w-4xl mx-auto p-2 sm:p-2 border border-green-200 bg-green-50 text-green-800">
     <p class="text-sm sm:text-base leading-relaxed">
-      <span class="font-bold">Note:</span> All documents and templates are available in digital format and support electronic signature to streamline processes and ensure efficient execution
+      <span class="font-bold"><?php echo app('translator')->get('Note'); ?>:</span> <?php echo app('translator')->get('All documents and templates are available in digital format and support electronic signature to streamline processes and ensure efficient execution'); ?>
     </p>
   </div>
 </section>

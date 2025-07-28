@@ -1,18 +1,19 @@
 <?php
-    $heroSectionContent =  getContent('hero_section.content', true);
+    $heroSectionContent = getContent('hero_section.content', true);
 ?>
 
-<div class="relative bg-cover bg-center flex h-[35vh] items-center justify-start" style="background-image: url('<?php echo e(getImage('assets/images/frontend/hero_section/' . @$heroSectionContent?->data_values?->image, '1920x300')); ?>');" >
-    <div class="absolute inset-0 bg-black opacity-70"></div>
-    <div class="max-w-7xl container z-10 text-white px-6">
-        <h3 class="font-bold leading-tight mb-6 text-1xl md:text-3xl sm:w-100 md:w-[500px] ">
-            <?php echo e(@$heroSectionContent?->lang('title')); ?>
+<div class="relative bg-cover bg-center bg-no-repeat w-full h-[300px]" style="background-image: url('<?php echo e(getImage('assets/images/frontend/hero_section/' . @$heroSectionContent?->data_values?->image, '1920x300')); ?>');">
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+        <div class="w-full py-4">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-3 max-w-full md:max-w-[80%] lg:max-w-[700px] text-white">
+                <?php echo e(@$heroSectionContent?->lang('title')); ?>
 
-        </h3>
-        <p class="text-base text-sm md:text-sm sm:w-100 md:w-[500px]">
-            <?php echo e(@$heroSectionContent?->lang('description')); ?>
+            </h1>
+            <p class="text-sm sm:text-base md:text-lg max-w-full md:max-w-[80%] lg:max-w-[600px] text-white">
+                <?php echo e(@$heroSectionContent?->lang('description')); ?>
 
-        </p>
+            </p>
+        </div>
     </div>
-</div>
-<?php /**PATH D:\projects\hrincu_v2\resources\views/sections/hero_section.blade.php ENDPATH**/ ?>
+</div><?php /**PATH D:\projects\hrincu_v2\resources\views/sections/hero_section.blade.php ENDPATH**/ ?>

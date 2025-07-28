@@ -86,13 +86,6 @@
     <?php echo $__env->yieldPushContent('script'); ?>
 
 
-    <script>
-        function showMobileMenu() {
-            const menu = document.getElementById('showMenu');
-            menu.classList.toggle('hidden');
-        }
-    </script>
-
 
     <script>
         (function($) {
@@ -217,6 +210,67 @@
     </script>
 
   <?php endif; ?>
+
+
+<script>
+
+    function showMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('hidden');
+    }
+
+    (function() {
+        function domReady(fn) {
+            document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', fn) : fn();
+        }
+
+        domReady(function() {
+            const dropdownGroups = document.querySelectorAll('.group');
+            const langSwitchers = document.querySelectorAll('.langSel');
+
+            function handleClickOutside(e) {
+                dropdownGoups.forEach(group => {
+                    const dropdown = group.querySelector('.more-menu');
+                    if (!group.contains(e.target)) {
+                        dropdown.classList.add('hidden');
+                    }
+                });
+            }
+
+            function handleLangSwitch(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                window.location.href = window.location.href + '?lang=' + lang;
+            }
+
+           
+            
+            document.addEventListener('click', handleClickOutside);
+            
+            langSwitchers.forEach(switcher => {
+                switcher.addEventListener('click', handleLangSwitch);
+            });
+
+            function handleHover() {
+                if (!('ontouchstart' in window)) {
+                    dropdownGroups.forEach(group => {
+                        group.addEventListener('mouseenter', () => {
+                            const dropdown = group.querySelector('.more-menu');
+                            dropdown.classList.remove('hidden');
+                        });
+                        
+                        group.addEventListener('mouseleave', () => {
+                            const dropdown = group.querySelector('.more-menu');
+                            dropdown.classList.add('hidden');
+                        });
+                    });
+                }
+            }
+            
+            handleHover();
+        });
+    })();
+</script>
 </body>
 
 </html>

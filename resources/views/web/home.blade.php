@@ -49,27 +49,26 @@
 
     @include('sections.hero_section')
 
-    @include('sections.ourservice_request')
+    @include('sections.ourservice_request', ['is_home_page' => true])
 
-    <section class="bg-[#3b0764] py-16 px-4 md:px-8 lg:px-16">
+    <section class="bg-[#3b0764] py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20">
         <div class="max-w-7xl mx-auto text-white">
-
-            <h2 class="text-xl md:text-3xl font-semibold mb-6">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-6">
                 @lang('Contact Us Now')
             </h2>
-
-            <ul class="text-base md:text-sm space-y-2 mb-8">
-                <li>@lang('Looking for qualified candidates?')</li>
-                <li>@lang('Need to train your team?')
-                <li>@lang('Seeking smart HR solutions?')</li>
-                <li>@lang('Start now — well guide you step by step')</li>
+    
+            <ul class="text-base sm:text-sm md:text-base space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                <li class="text-sm sm:text-base">@lang('Looking for qualified candidates?')</li>
+                <li class="text-sm sm:text-base">@lang('Need to train your team?')</li>
+                <li class="text-sm sm:text-base">@lang('Seeking smart HR solutions?')</li>
+                <li class="text-sm sm:text-base">@lang('Start now — well guide you step by step')</li>
             </ul>
-
-            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out text-center text-sm">
+    
+            <div class="flex flex-row xs:flex-row gap-3 sm:gap-4">
+                <a href="{{ route('submit.resume') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-1.5 px-4 sm:py-2.5 sm:px-5 md:py-3 md:px-6 rounded-md transition duration-300 ease-in-out text-center text-sm sm:text-base">
                     @lang('Submit Request')
                 </a>
-                <a href="#" class="inline-block border-2 border-white hover:bg-white hover:text-[#3b0764] text-white font-medium py-2 px-6 rounded-md transition duration-300 ease-in-out text-center text-sm ms-3">
+                <a href="{{ route('contact') }}" class="border-1 border-white hover:text-[#3b0764] text-white font-medium py-1.5 px-4 sm:py-2.5 sm:px-5 md:py-3 md:px-6 rounded-md transition duration-300 ease-in-out text-center text-sm sm:text-base">
                     @lang('Contact Us')
                 </a>
             </div>
