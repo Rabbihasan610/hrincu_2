@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-4">
                         <label class="form-label">@lang('Image') <span class="text-danger fs-6">*</span></label>
-                        <x-image-uploader image="{{ @$service->image }}" name="image" class="w-100" type="service"/>
+                        <x-image-uploader image="{{ @$service->image }}" name="image" class="w-100" type="deafult_service"/>
                     </div>
                     <div class="col-md-8">
                         <div class="mb-3 form-group">

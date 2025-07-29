@@ -47,7 +47,7 @@
                             </div>
                         </div>
 
-                        <button class=" bg-purple-600 text-white p-2 hover:bg-purple-700 transition-colors duration-200">@lang('Apply Request')</button>
+                        <a href="{{ route('training.and.qualification.request') }}" class=" bg-purple-600 text-white p-2 hover:bg-purple-700 transition-colors duration-200">@lang('Apply Request')</a>
                     </div>
                 </div>
                 @endforeach

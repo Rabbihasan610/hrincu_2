@@ -16,7 +16,7 @@
                 @endif
 
                 @if ($title)
-                    <h2 class="mb-6 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl">{{ $title }}</h2>
+                    <h3 class="mb-6 text-2xl font-bold leading-tight text-gray-900 sm:text-3xl">{{ $title }}</h3>
                 @endif
 
                 @if ($description)

@@ -39,7 +39,7 @@ class OurServiceController extends Controller
             'items.*.title_ar' => 'nullable|string|max:255',
         ]);
 
-        $validated['slug'] = Str::slug($validated['title']);
+        $validated['slug'] = Str::slug($validated['title'], '_') . '_' . rand(1, 100);
 
         if (isset($validated['form_extra_fields'])) {
             foreach ($validated['form_extra_fields'] as &$field) {
@@ -122,7 +122,7 @@ class OurServiceController extends Controller
 
         $validated['items'] = isset($validated['items']) ? json_encode($validated['items']) : json_encode([]);
 
-        $validated['slug'] = Str::slug($validated['title']);
+        $validated['slug'] = Str::slug($validated['title'], '_') . '_' . rand(1, 100);
 
         $ourService = OurService::findOrFail($id);
 

@@ -52,11 +52,14 @@ Route::controller(WebController::class)->group(function () {
 
     Route::get('/service', 'service')->name('service');
     Route::get('/targeted-sector', 'targetedSector')->name('targeted.sector');
+    Route::get('/targeted-sector-request', 'targetedSectorRequest')->name('targeted.sector.request');
+    Route::post('/targeted-sector-request-store', 'targetedSectorRequestStore')->name('targeted.sector.request.store');
     Route::get('/training-program', 'trainingProgram')->name('training.program');
     Route::get('/special-training', 'specialTraining')->name('special.training');
     Route::get('/community-engagement', 'communityEngagement')->name('community.engagement');
     Route::get('/community-partnership-request', 'communityPartnershipRequest')->name('community.partnership.request');
     Route::get('/training-and-qualification-request/{slug?}', 'trainingAndQualificationRequest')->name('training.and.qualification.request');
+    Route::post('/training-and-qualification-request-store', 'trainingAndQualificationRequestStore')->name('training.and.qualification.request.store');
     Route::get('/job-listing', 'jobListing')->name('job.listing');
 
     Route::get('/licenses-documents', 'licensesDocument')->name('licenses.document');
@@ -67,6 +70,7 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/jobincu-service', 'jobincuService')->name('jobincu.service');
     Route::get('/sectors', 'sectors')->name('sectors');
     Route::get('/community-partnership', 'communityPartnership')->name('community.partnership');
+    Route::get('/community-partnership-details/{id}', 'communityPartnershipDetails')->name('community.partnership.details');
     Route::get('/qualification-and-empowerment', 'qualificationAndEmpowerment')->name('qualification.and.empowerment');
 
     Route::get('/employers', 'employers')->name('employers');

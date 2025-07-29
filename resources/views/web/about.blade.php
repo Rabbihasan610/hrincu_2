@@ -1,11 +1,11 @@
+
 @extends('web.layouts.frontend', ['title' => 'About Us'])
 
 @section('content')
-    <x-breadcrumb title="About Us" />
+    <x-breadcrumb />
 
     @php
         $heroBanner = getHeroBanner('about');
-
     @endphp
 
     <x-hero-banner :subtitle="$heroBanner?->subtitle" :title="$heroBanner?->title" :description="$heroBanner?->description" :image="$heroBanner?->image" />

@@ -23,11 +23,7 @@
 
                     <div class="mb-4">
                         <div class="icon-box mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase text-purple-700">
-                                <rect width="20" height="14" x="2" y="7" rx="2" ry="2"/>
-                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                                <path d="M12 12h0"/>
-                            </svg>
+                            <img src="{{ getImage(getFilePath('service') . '/' . $service->icon) }}" alt="Service Image" class="w-16 h-16 object-cover">
                         </div>
                         <h6 class="font-bold text-md mb-0 text-gray-900">{{ $service?->lang('title') }}</h6>
                     </div>

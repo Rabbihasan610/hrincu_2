@@ -5,7 +5,7 @@
 <x-breadcrumb title="Licenses & Documents" />
 
 @php
-    $heroBanner = getHeroBanner('licenses-and-document');
+    $heroBanner = getHeroBanner('licenses-documents', 'hero_banner');
 @endphp
 <x-hero-banner :subtitle="$heroBanner?->subtitle" :title="$heroBanner?->title" :description="$heroBanner?->description" :image="$heroBanner?->image" />
 

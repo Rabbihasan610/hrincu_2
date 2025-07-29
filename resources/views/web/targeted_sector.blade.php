@@ -30,6 +30,17 @@
     </section>
 
 
+    @php
+        $callToAction = getHeroBanner('targeted-sector', 'call_to_action');
+    @endphp
+
+    <x-call-to-action 
+        :title="$callToAction?->title" 
+        :description="$callToAction?->description" 
+        link_button="{{ route('targeted.sector.request') }}"
+    />
+
+
     @if (@$sections->secs != null)
         @foreach (json_decode($sections->secs) as $sec)
             @include("sections." . $sec)

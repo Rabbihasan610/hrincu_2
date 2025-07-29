@@ -31,7 +31,6 @@
                         <div class="col-12 col-md-6 mb-4">
                             <div class="partnership-card" style="background: {{ $bgColors[$i % count($bgColors)] }};">
                                 <h5>{{ @$GeneralFormElement?->lang('title') }}</h5>
-                              <a href="#">@lang('click here to details')</a>
                             </div>
                         </div>
                         @php $i++; @endphp

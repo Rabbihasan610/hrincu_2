@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Job;
 use App\Models\Blog;
+use App\Models\City;
 use App\Models\Page;
 use App\Models\Resume;
 use App\Models\Country;
@@ -25,14 +26,18 @@ use App\Models\SectorRequest;
 use App\Models\SupportTicket;
 use App\Models\ServiceRequest;
 use App\Models\SupportMessage;
+use Illuminate\Validation\Rule;
 use App\Models\AdminNotification;
 use App\Models\OurServiceRequest;
 use App\Models\Mail\ContactPerson;
 use Illuminate\Support\Facades\DB;
 use App\Models\SponsorshipTransfer;
+use Illuminate\Support\Facades\Log;
 use App\Models\CommunityPartnership;
+use App\Models\TargetedSectorRequest;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
+use App\Models\TrainingAndQualificationRequest;
 
 class WebController extends Controller
 {
@@ -278,8 +283,16 @@ class WebController extends Controller
     public function communityPartnership()
     {
         $sections = Page::where('slug', 'community-partnership')->first();
-        $datas = CommunityPartnership::active()->paginate(getPaginate());
-        return view('web.community_partnership', compact('sections', 'datas'));
+        $community_partnerships = CommunityPartnership::active()->get();
+        return view('web.community_partnership', compact('sections', 'community_partnerships'));
+    }
+
+    public function communityPartnershipDetails($id)
+    {
+        $community_partnership = CommunityPartnership::active()->where('id', $id)->first();
+        $sections = Page::where('slug', 'community-partnership')->first();
+        $title = $community_partnership->lang('title');
+        return view('web.community-partnership-details', compact('community_partnership', 'sections', 'title'));
     }
 
     public function qualificationAndEmpowerment()
@@ -677,12 +690,140 @@ class WebController extends Controller
         return view('web.targeted_sector', compact('sections', 'sectors'));
     }
 
+    public function targetedSectorRequest()
+    {
+        $sections = Page::where('slug', 'targeted-sector-request')->first();
+
+        $title = 'Human Resources Incubator Platform';
+        $businessTypes = ['IT/Software' => 'تكنولوجيا المعلومات/البرمجيات', 'Healthcare' => 'الرعاية الصحية', 'Education' => 'التعليم', 'Finance' => 'المالية', 'Manufacturing' => 'التصنيع', 'Retail' => 'التجزئة', 'Other' => 'أخرى'];
+        $maritalStatuses = ['Single' => 'أعزب', 'Married' => 'متزوج', 'Divorced' => 'مطلق', 'Widowed' => 'أرمل'];
+
+        $citiesRegions = City::get();
+
+        $requestedServices = OurService::get();
+
+        return view('web.requests.targeted_sector_request', compact('sections', 'title', 'businessTypes', 'maritalStatuses', 'citiesRegions', 'requestedServices'));
+    }
+
+    public function targetedSectorRequestStore(Request $request)
+    {
+        $validatedData = $request->validate([
+
+            'organization_name' => 'required|string|max:255',
+            'city_id' => 'required|exists:cities,id',
+            'business_type_sector' => 'required|string|max:255', 
+            'marital_status' => 'nullable|string|max:50',
+            'mobile_number' => 'nullable|string|max:20',
+            'city_region' => 'nullable|string|max:255',
+            'email_address' => 'nullable|email|max:255',
+            'current_occupation' => 'nullable|string|max:255',
+            'average_monthly_income' => 'nullable|numeric|min:0',
+            'requested_services' => 'nullable|array', 
+            'requested_services.*' => 'string|max:255', 
+            'description_of_need' => 'nullable|string',
+            'expected_timeframe' => 'nullable|date',
+            'preferred_communication_method' => ['required', 'string', Rule::in(['email', 'phone', 'whatsapp'])],
+        ],[
+            'organization_name.required' => __('Organization name is required'),
+            'city_id.required' => __('City is required'),
+            'business_type_sector.required' => __('Business type/sector is required'),
+            'marital_status.required' => __('Marital status is required'),
+            'mobile_number.required' => __('Mobile number is required'),
+            'city_region.required' => __('City/region is required'),
+            'email_address.required' =>     __('Email address is required'),
+            'current_occupation.required' => __('Current occupation is required'),
+            'average_monthly_income.required' => __('Average monthly income is required'),
+            'requested_services.required' => __('Requested services is required'),
+            'description_of_need.required' => __('Description of need is required'),
+            'expected_timeframe.required' => __('Expected timeframe is required'),
+            'preferred_communication_method.required' => __('Preferred communication method is required'),
+        ]);
+
+        try {
+            if (isset($validatedData['average_monthly_income'])) {
+                $validatedData['average_monthly_income'] = str_replace(',', '', $validatedData['average_monthly_income']);
+            }
+            TargetedSectorRequest::create($validatedData);
+            $notify[] = ['success', __('Your request has been submitted successfully!')];
+
+            return redirect()->back()->withNotify($notify);
+        } catch (\Exception $e) {
+            Log::error('Error storing HR Incubator request: ' . $e->getMessage());
+            $notify[] = ['error', __('There was an error submitting your request. Please try again.')];
+            return redirect()->back()->withNotify($notify);
+        }
+    }   
+
     public function trainingProgram()
     {
         $sections = Page::where('slug', 'training-program')->first();
         $trainings = TrainingPath::active()->get();
         return view('web.training_program', compact('sections', 'trainings'));
     }
+
+
+    public function trainingAndQualificationRequest($slug = null)
+    {
+        $sections = Page::where('slug', 'training-and-qualification-request')->first();
+        $citiesRegions = City::get();
+        $businessTypes = ['IT/Software' => 'تكنولوجيا المعلومات/البرمجيات', 'Healthcare' => 'الرعاية الصحية', 'Education' => 'التعليم', 'Finance' => 'المالية', 'Manufacturing' => 'التصنيع', 'Retail' => 'التجزئة', 'Other' => 'أخرى'];
+        return view('web.training_and_qualification_request', compact('sections', 'slug', 'citiesRegions', 'businessTypes'));
+    }
+
+
+    public function trainingAndQualificationRequestStore(Request $request)  
+    {
+        try {
+
+            $validatedData = $request->validate([
+                'organization_name' => 'required|string|max:255',
+                'city_id' => 'required',
+                'industry_sector' => 'required|string|max:255',
+                'full_name_applicant' => 'required|string|max:255',
+                'email_number' => 'required|email|max:255',
+                'mobile_number' => 'nullable|string|max:20',
+                'requested_services' => 'nullable|array',
+                'requested_services.*' => 'string|max:255', 
+                'target_group' => 'nullable|string|max:255',
+                'expected_participants' => 'nullable|integer|min:1',
+                'training_format' => 'nullable|in:in_person,remote,hybrid',
+                'suggested_duration' => 'nullable|in:yes,no',
+                'preferred_training_language' => 'nullable|in:english,arabic',
+                'expected_start_date' => 'nullable|date',
+                'additional_notes' => 'nullable|string',
+            ], [
+                'organization_name.required' => __('Organization name is required'),
+                'city.required' => __('City is required'),
+                'industry_sector.required' => __('Industry sector is required'),
+                'full_name_applicant.required' => __('Full name applicant is required'),
+                'email_number.required' => __('Email number is required'),
+                'mobile_number.required' => __('Mobile number is required'),
+                'requested_services.required' => __('Requested services is required'),
+                'target_group.required' => __('Target group is required'),
+                'expected_participants.required' => __('Expected participants is required'),
+                'training_format.required' => __('Training format is required'),
+                'suggested_duration.required' => __('Suggested duration is required'),
+                'preferred_training_language.required' => __('Preferred training language is required'),
+                'expected_start_date.required' => __('Expected start date is required'),
+                'additional_notes.required' => __('Additional notes is required'),
+            ]);
+        
+            if (isset($validatedData['suggested_duration'])) {
+                $validatedData['suggested_duration'] = ($validatedData['suggested_duration'] === 'yes');
+            }
+        
+            TrainingAndQualificationRequest::create($validatedData);
+            $notify[] = ['success', __('Your request has been submitted successfully!')];
+            return redirect()->back()->withNotify($notify);
+        } catch (\Exception $e) {
+            Log::error('Error storing HR Incubator request: ' . $e->getMessage());
+
+            return $e->getMessage();
+            $notify[] = ['error', __('There was an error submitting your request. Please try again.')];
+            return redirect()->back()->withNotify($notify);
+        }
+    }
+
 
     public function specialTraining()
     {

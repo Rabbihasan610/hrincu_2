@@ -91,16 +91,12 @@
                             class="bi bi-record-circle"></i>@lang('All Requests')
                     </a>
                 </li>
-                <li class="{{ menuActive('admin.sector.request*') }}">
-                    <a href="{{ route('admin.sector.request.index') }}"><i
-                            class="bi bi-record-circle"></i>@lang('Sector Requests')
-                    </a>
-                </li>
-                <li class="{{ menuActive('admin.trainingpath.request*') }}">
+                
+                {{-- <li class="{{ menuActive('admin.trainingpath.request*') }}">
                     <a href="{{ route('admin.trainingpath.request.index') }}"><i
                             class="bi bi-record-circle"></i>@lang('Training Path Request')
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </li>
 
@@ -121,6 +117,18 @@
                 <li class="{{ menuActive('admin.our-services-request.index*') }}">
                     <a href="{{ route('admin.our-services-request.index') }}"><i
                             class="bi bi-record-circle"></i>@lang('Our Service Requests')</a>
+                </li>
+
+                <li class="{{ menuActive('admin.targeted_sector_request*') }}">
+                    <a href="{{ route('admin.targeted_sector_request.index') }}"><i
+                            class="bi bi-record-circle"></i>@lang('Targeted Sector Requests')
+                    </a>
+                </li>
+
+                <li class="{{ menuActive('admin.training-and-qualification-request*') }}">
+                    <a href="{{ route('admin.training-and-qualification-request.index') }}"><i
+                            class="bi bi-record-circle"></i>@lang('Training & Qualification Requests')
+                    </a>
                 </li>
             </ul>
         </li>

@@ -42,7 +42,7 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <button type="submit" id="recaptcha" class="btn btn-base w-100">
+                                    <button type="submit" id="recaptcha" class="btn bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 w-100">
                                         @lang('Sign In')
                                     </button>
                                 </div>
@@ -61,7 +61,7 @@
 @push('script')
     <script>
         $('form').on('submit', function() {
-            if ($(this).valid()) {
+            if ($(this).valid()) 
                 alert('sadf');
                 $(':submit', this).attr('disabled', 'disabled');
             }

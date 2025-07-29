@@ -219,6 +219,17 @@
         mobileMenu.classList.toggle('hidden');
     }
 
+
+    document.addEventListener('click', function(e) {
+        const toggle = e.target.closest('.isToggle');
+        const toggleMenu = e.target.closest('.isToggleMenu');
+        if (toggle) {
+            toggleMenu.classList.toggle('hidden');
+        } else {
+            toggleMenu.classList.add('hidden');
+        }
+    });
+
     (function() {
         function domReady(fn) {
             document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', fn) : fn();
@@ -268,6 +279,9 @@
             }
             
             handleHover();
+
+
+            // 
         });
     })();
 </script>

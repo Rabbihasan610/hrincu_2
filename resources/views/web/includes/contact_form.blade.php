@@ -30,7 +30,7 @@
             <textarea required name="message" id="message" placeholder="@lang('Message')" class="form-control"></textarea>
         </div>
         <div class="col-12">
-            <input class="btn primary-btn" type="submit" value="@lang('Send Message')">
+            <input class="btn btn-primary" type="submit" value="@lang('Send Message')">
         </div>
     </div>
 </form>

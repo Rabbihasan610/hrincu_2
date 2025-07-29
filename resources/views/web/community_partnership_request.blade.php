@@ -1,7 +1,7 @@
 @extends("web.layouts.frontend", ["title" => gs("site_name")])
 
 @section("content")
-        <x-breadcrumb title="Community Partnership Request" />
+        <x-breadcrumb title="@lang('Community Partnership Request')" />
 
         <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
             <div class="max-w-4xl mx-auto p-6 md:p-8 lg:p-10">
@@ -16,8 +16,7 @@
                 </h2>
 
                 <form method="POST" action="{{ route('community.partnership.request.store') }}" enctype="multipart/form-data"> {{-- Add your form submission route here --}}
-                    @csrf {{-- CSRF token for security --}}
-
+                    @csrf 
                     <div class="mb-8">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4">@lang("1. Organization Information")</h3>
 
@@ -88,7 +87,7 @@
                     <div class="mb-8">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4">@lang("3. Initiative or Project Details")</h3>
                         <p class="text-gray-600 text-sm mb-4">@lang("Please provide a brief description of the proposed initiative or project")</p>
-                        <textarea id="projectDescription" name="project_description" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Write your description">{{ old('project_description') }}</textarea>
+                        <textarea id="projectDescription" name="project_description" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="@lang('Write your description')">{{ old('project_description') }}</textarea>
                     </div>
 
                     <div class="mb-8">
@@ -111,7 +110,7 @@
 
                     <div class="mb-8">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4">@lang("5. Additional notes")</h3>
-                        <textarea id="additionalNotes" name="additional_notes" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="{{ __('Write your notes') }}">{{ old('additional_notes') }}</textarea>
+                        <textarea id="additionalNotes" name="additional_notes" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="@lang('Write your notes')">{{ old('additional_notes') }}</textarea>
                     </div>
 
                     <div>

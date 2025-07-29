@@ -46,6 +46,7 @@ class ServiceController extends Controller
         }
 
         $service->title = $request->title;
+        $service-
         $service->title_ar = $request->title_ar;
         $service->description = $request->description;
         $service->description_ar = $request->description_ar;
@@ -56,7 +57,7 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             try {
                 $old = $service->image;
-                $service->image = fileUploader($request->image, getFilePath('service'), getFileSize('service'), $old);
+                $service->image = fileUploader($request->image, getFilePath('deafult_service'), getFileSize('deafult_service'), $old);
                 $service->save();
             } catch (\Exception $exp) {
                 $notify[] = ['error', 'Couldn\'t upload your image'];
@@ -80,7 +81,7 @@ class ServiceController extends Controller
         $service = Service::findOrFail($id);
 
         if ($service->image) {
-            $path = getFilePath('service');
+            $path = getFilePath('deafult_service');
             fileManager()->removeFile($path.'/'.$service->image);
         }
 

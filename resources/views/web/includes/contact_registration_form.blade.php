@@ -38,7 +38,7 @@
         </div>
 
         <div class="col-12">
-            <input class="btn primary-btn" type="submit" value="@lang('Send Message')">
+            <input class="btn btn-primary" type="submit" value="@lang('Send Message')">
         </div>
     </div>
 </form>

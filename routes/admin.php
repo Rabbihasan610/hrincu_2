@@ -28,6 +28,8 @@ use App\Http\Controllers\Admin\CandidateCategoryController;
 use App\Http\Controllers\Admin\OurServiceRequestController;
 use App\Http\Controllers\Admin\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\Auth\ForgotPasswordController;
+use App\Http\Controllers\Admin\TargetedSectorRequestController;
+use App\Http\Controllers\Admin\TrainingAndQualificationRequestController;
 use App\Http\Controllers\Admin\Services\TrainingProgramCategoryController;
 
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
@@ -304,6 +306,14 @@ Route::middleware('admin')->group(function () {
 
     require_once __DIR__.'/includes/service.php';
 
+    // Training and Qualification Request routes
+    Route::group(['prefix' => 'training-and-qualification-request', 'as' => 'training-and-qualification-request.'], function () {
+        Route::get('/', [TrainingAndQualificationRequestController::class, 'index'])->name('index');
+        Route::get('/{id}', [TrainingAndQualificationRequestController::class, 'show'])->name('show');
+        Route::put('/{id}', [TrainingAndQualificationRequestController::class, 'update'])->name('update');
+        Route::delete('/{id}', [TrainingAndQualificationRequestController::class, 'destroy'])->name('destroy');
+    });
+
 
     Route::group(['as'=>'job.','prefix'=>'job'], function(){
         Route::get('view', [JobController::class, 'index'])->name('index');
@@ -357,4 +367,13 @@ Route::middleware('admin')->group(function () {
         Route::post('/status/{id}', [TrainingProgramCategoryController::class, 'status'])->name('trainingprogramcategory.status');
         Route::get('/duplicate/{id}', [TrainingProgramCategoryController::class, 'duplicate'])->name('trainingprogramcategory.duplicate');
     });
+
+
+    Route::prefix('targeted-sector-request')->group(function() {    
+        Route::get('/', [TargetedSectorRequestController::class, 'index'])->name('targeted_sector_request.index');
+        Route::get('/show/{id}', [TargetedSectorRequestController::class, 'show'])->name('targeted_sector_request.show');
+        Route::put('/update/{id}', [TargetedSectorRequestController::class, 'update'])->name('targeted_sector_request.update');
+        Route::post('/destroy/{id}', [TargetedSectorRequestController::class, 'destroy'])->name('targeted_sector_request.destroy');
+    });
+
 });

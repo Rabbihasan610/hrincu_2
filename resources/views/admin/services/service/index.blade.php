@@ -20,7 +20,7 @@
                                 @forelse($services as $service)
                                     <tr>
                                         <td> {{ $loop->index + 1 }} </td>
-                                        <td> <img src="{{ getImage(getFilePath('service') . '/' . $service->image) }}" alt="image" class="rounded" style="width: 50px"> </td>
+                                        <td> <img src="{{ getImage(getFilePath('deafult_service') . '/' . $service->image) }}" alt="image" class="rounded" style="width: 50px"> </td>
                                         <td> {{ $service->lang('title') }} </td>
                                         <td> {{ Str::limit($service->lang('description'), 50) }} </td>
                                         <td>

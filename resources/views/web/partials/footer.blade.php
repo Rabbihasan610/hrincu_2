@@ -39,7 +39,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-gray-300">
             <div>
                 <h2 class="text-blue-500 text-xl font-bold">
-                    <img src="{{ siteLogo() }}" class="h-16" alt="">
+                    <img src="{{ asset('assets/images/logoIcon/logo_white.png') }}" class="h-24" alt="">
                 </h2>
                 <p class="mt-2 text-sm">@lang('Make authenticate Brand')</p>
                 <p class="mt-4 mb-2">@lang('Follow us:')</p>
@@ -58,6 +58,7 @@
                     <li>&gt;&gt;<a href="{{ route('special.training') }}">@lang('Special Training')</a></li>
                     <li>&gt;&gt;<a href="{{ route('training.program') }}">@lang('Training Program')</a></li>
                     <li>&gt;&gt;<a href="{{ route('job.listing') }}">@lang('Job Listing')</a></li>
+                    <li>&gt;&gt;<a href="{{ route('community.partnership') }}">@lang('Community Partnership')</a></li>
                 </ul>
             </div>
 

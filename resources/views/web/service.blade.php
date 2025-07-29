@@ -2,7 +2,7 @@
 
 @section('content')
 
-<x-breadcrumb title="Our Services" />
+<x-breadcrumb />
 
 @php
 $heroBanner = getHeroBanner('service');

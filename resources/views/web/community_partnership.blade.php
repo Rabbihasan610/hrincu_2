@@ -1,64 +1,30 @@
 @extends('web.layouts.frontend', ['title' => 'Community Partnership'])
 
 @section('content')
-    @include('sections.page_banner', ['title' => 'Community Partnership'])
+    
+   <x-breadcrumb title="Community Partnership" />
 
+    @if ($community_partnerships->count() > 0)
+    <div class="container mx-auto px-4 py-10 md:py-20">
+        @foreach ($community_partnerships as $community_partnership)
 
-    <!-----------  Community Partnership section start ------------------>
-    <section class="py-5">
-        <div class="container">
-
-            <div class="row">
-                @foreach ($datas as $data)
-                <div class="col-12 col-md-4">
-                    <div class="pb-5 h-100">
-                        <div class="partnership-card-section h-100">
-                            <div class="partnership-card d-flex justify-content-start">
-                                <img class="img-fluid" src="{{ getImage(getFilePath('service') . '/' . $data->image) }}" alt="{{ $data?->lang('title') }}">
-                                <h4 @if (session('lang') == 'ar') style="text-align: right !important;" @endif>{{ $data?->lang('title') }}</h4>
-                            </div>
-                            <div class="partnership-card-body" @if (session('lang') == 'ar') style="padding-right: 10px !important;" @endif>
-                                <p @if (session('lang') == 'ar') style="text-align: right !important;" @endif>{{ $data?->lang('description') }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16 md:mb-20 bg-white p-6 md:p-10">
+            <div class="w-full md:w-1/2 {{ $loop->odd ? 'order-1' : 'order-2' }}">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">{{ $community_partnership?->lang('title') }}</h1>
+                <p class="text-base md:text-lg text-gray-600 mb-6">
+                    {{ $community_partnership?->lang('description') }}
+                </p>
+                <a href="{{ route('community.partnership.details', $community_partnership->id) }}" class="inline-block px-6 py-2 border-1 border-purple-500 text-purple-500 rounded-md font-semibold hover:bg-purple-500 hover:text-white transition duration-300">@lang('View Details')</a>
             </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-button d-flex py-3 justify-content-center align-items-center">
-                        @if ($datas->previousPageUrl())
-                            <a href="{{ $datas->previousPageUrl() }}">
-                                <button class="btn btn-primary">
-                                    <i class="fa-solid fa-angle-left"></i> Previous
-                                </button>
-                            </a>
-                        @endif
-
-                        <div class="page-number mx-3">
-                            @foreach(range(1, $datas->lastPage()) as $page)
-                                <a href="{{ $datas->url($page) }}"
-                                   class="{{ $datas->currentPage() == $page ? 'fw-bold btn btn-primary' : '' }}">
-                                    {{ str_pad($page, 2, '0', STR_PAD_LEFT) }}
-                                </a>
-                            @endforeach
-                        </div>
-
-                        @if ($datas->nextPageUrl())
-                            <a href="{{ $datas->nextPageUrl() }}">
-                                <button class="btn btn-primary">
-                                    Next <i class="fa-solid fa-angle-right"></i>
-                                </button>
-                            </a>
-                        @endif
-                    </div>
-                </div>
+            <div class="w-full md:w-1/2 h-64 md:h-96 overflow-hidden rounded-md {{ $loop->odd ? 'order-2' : 'order-1' }}">
+                <img src="{{ getImage(getFilePath('deafult_service') . '/' . $community_partnership->image) }}" alt="Training Program Image" class="w-full h-full object-cover">
             </div>
         </div>
-    </section>
-    <!-----------  Community Partnership section end ------------------>
+    
+        @endforeach
+    </div>
+    @endif
 
     @if (@$sections->secs != null)
         @foreach (json_decode($sections->secs) as $sec)

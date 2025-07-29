@@ -23,14 +23,16 @@
             </li>
             
             <li class="relative group">
-                <button class="flex items-center hover:text-gray-300 whitespace-nowrap">
+
+                <button class="flex items-center hover:text-gray-300 whitespace-nowrap isToggle">
                     <i class="bi bi-person-fill text-xs mr-1 rtl:ml-1 rtl:mr-0"></i>
                     <span>@lang('Account')</span>
                     <svg class="w-3 h-3 ml-1 rtl:mr-1 rtl:ml-0 transform {{ $isRTL ? 'rotate-180' : '' }}" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M5.25 7.75L10 12.5l4.75-4.75"/>
                     </svg>
                 </button>
-                <ul class="absolute {{ $isRTL ? 'left-0' : 'right-0' }} w-40 mt-1 bg-white text-black rounded shadow-md hidden group-hover:block z-50 text-start">
+
+                <ul class="absolute {{ $isRTL ? 'left-0' : 'right-0' }} top-3 w-40 mt-1 bg-white text-black rounded shadow-md hidden group-hover:block z-50 text-start isToggleMenu">
                     @auth
                         <li><a href="{{ route('user.home') }}" class="block px-3 py-2 text-xs hover:bg-gray-100">@lang('Dashboard')</a></li>
                         <li><a href="{{ route('user.logout') }}" class="block px-3 py-2 text-xs hover:bg-gray-100">@lang('Logout')</a></li>
